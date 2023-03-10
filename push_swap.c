@@ -6,90 +6,11 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/09 20:34:04 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/10 20:38:51 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_isdigit(int n)
-{
-	if (n >= '0' && n <= '9')
-	{
-		return (1);
-	}
-	return (0);
-}
-
-int	ft_atoi(const char *str)
-{
-	int	i;
-	int	j;
-	int	result;
-
-	i = 0;
-	j = 1;
-	result = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			j = j * -1;
-		i++;
-	}
-	while (ft_isdigit((int)str[i]))
-	{
-		result = result * 10 + str[i] - '0';
-		i++;
-	}
-	return (result * j);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_word(char *str, char c)
-{
-	int	x;
-	int	contare;
-
-	x = 0;
-	contare = 0;
-	while (str[x])
-	{
-		if ((x == 0 && str[x] != contare) || (str[x] == contare && str[x + 1] && str[x + 1] != contare))
-			contare++;
-		x++;
-	}
-	return (contare);
-}
-
-char	*ft_strndup(char *str, int n)
-{
-	int		x;
-	char	*dest;
-
-	x = 0;
-	dest = malloc(sizeof(char) * (n + 1));
-	if (!dest)
-		return (0);
-	while (x < n)
-	{
-		dest[x] = str[x];
-		x++;
-	}
-	dest[x] = '\0';
-	return (dest);
-}
-int a;
 
 char	**ft_split(char *str, char c)
 {
@@ -117,7 +38,6 @@ char	**ft_split(char *str, char c)
 			return (NULL);
 	}
 	arg[x] = 0;
-	a = x + 1;
 	return (arg);
 }
 
@@ -146,9 +66,9 @@ int	*ft_arg(char **str)
 
 int	ft_contare(char **av)
 {
-	int x;
-	int y;
-	int c;
+	int	x;
+	int	y;
+	int	c;
 
 	x = 1;
 	c = 0;
@@ -164,200 +84,46 @@ int	ft_contare(char **av)
 	return (c);
 }
 
-void	ft_swap_first(char **av)
+void	ft_write(char **arg)
 {
-	int		*stacka;
-	int		*stackb;
-	int		swap;
-	int		x;
-	int		contare;
-
-	x = 0;
-	stacka = ft_arg(av);
-	swap = stacka[0];
-	stacka[0] = stacka[1];
-	stacka[1] = swap;
-	contare = ft_contare(av);
-	write(1, "PUSH SWAP | sa :\n", 17);
-	while (x < contare)
-	{
-		printf("%2d\n", stacka[x]);
-		x++;
-	}
-	while (x < contare)
-	{
-		printf("%d\n", stackb[x]);
-		x++;
-	}
-	write(1, " _  _\n", 6);
-	write(1, " a  b\n", 6);
-}
-
-void	ft_rev_shift_up(char **av)
-{
-	int		*stacka;
-	int		*stackb;
-	int		contare;
-	int		x;
-	int		c;
-	int		s;
-
-	x = 0;
-	stacka = ft_arg(av);
-	contare = ft_contare(av);
-	s = contare - 1;
-	while (x <= s)
-	{
-		if (!x)
-		{
-			c = stacka[s];
-			stacka[s] = stacka[0];
-		}
-		else if (x + 1 == s)
-			stacka[x++] = c;
-		if (x + 1 != s + 1)
-			stacka[x] = stacka[x + 1];
-		x++;
-	}
-	write(1, "PUSH SWAP | ra :\n", 17);
-	x = 0;
-	while (x < contare)
-	{
-		printf("%2d\n", stacka[x]);
-		x++;
-	}
-	while (x < contare)
-	{
-		printf("%d\n", stackb[x]);
-		x++;
-	}
-	write(1, " _  _\n", 6);
-	write(1, " a  b\n", 6);
-}
-
-void	ft_rev_shift_down(char **av)
-{
-	int		*stacka;
-	int		*stackb;
-	int		contare;
-	int		x;
-	int		c;
-	int		s;
-
-	x = 0;
-	stacka = ft_arg(av);
-	contare = ft_contare(av);
-	s = contare - 1;
-	while (x <= s)
-	{
-		if (s == contare - 1)
-		{
-			c = stacka[x];
-			stacka[x] = stacka[s];
-			x++;
-		}
-		else if (s - 1 == x - 1)
-			stacka[s--] = c;
-		if (s - 1 >= 1)
-			stacka[s] = stacka[s - 1];
-		s--;
-	}
-	write(1, "PUSH SWAP | rra :\n", 18);
-	x = 0;
-	while (x < contare)
-	{
-		printf("%d\n", stacka[x]);
-		x++;
-	}
-	while (x < contare)
-	{
-		printf("%d\n", stackb[x]);
-		x++;
-	}
-	write(1, " _  _\n", 6);
-	write(1, " a  b\n", 6);
-}
-
-//int *push_a(int nbr, int *str, int contare)
-//{
-//	int a[contare];
-//	int b;
-//	int x;
-//	int first;
-//	int *nbrs = malloc(contare * sizeof(int));
-
-//	x = 1;
-//	nbrs[0] = nbr;
-//	stack_s.stacka = &stack_s.stacka[1];
-//	while (x < contare)
-//	{
-//		nbrs[x] = str[x - 1];
-//		x++;
-//	}
-//	write(1, "pa\n", 3);
-//	return (nbrs);
-//}
-
-int *push_b(int nbr, int *str, int contare)
-{
-	int a[contare];
-	int b;
-	int x;
-	int first;
-	int *nbrs = malloc(contare * sizeof(int));
-
-	x = 1;
-	nbrs[0] = nbr;
-	stack_s.stackb = &stack_s.stackb[1];
-	while (x < contare)
-	{
-		nbrs[x] = str[x - 1];
-		x++;
-	}
-	write(1, "pb\n", 3);
-	return (nbrs);
-}
-
-void ss(int contare)
-{
-	stack_s.stackb = push_a(stack_s.stacka[0], stack_s.stackb, contare);
-	stack_s.stacka = push_b(stack_s.stackb[0], stack_s.stacka, contare + 1);
+	//ft_swap_first(arg);
+	ft_rev_shift_up(arg);
+	//ft_rev_shift_down(arg);
+	//ss(ps.contare);
+	//stack_s.stackb = push_a(stack_s.stacka[0], stack_s.stackb, ps.contare);
+	//printf("PUSH SWAP | pa\n");
+	//di.x = 0;
+	//while (di.x < ps.contare + 1)
+	//{
+	//	printf("%2d  %d\n", stack_s.stacka[di.x], stack_s.stackb[di.x]);
+	//	di.x++;
+	//}
+	//write(1, " _  _\n", 6);
+	//write(1, " a  b\n", 6);
+	//stack_s.stacka = push_b(stack_s.stackb[0], stack_s.stacka, ps.contare + 1);
+	//printf("PUSH SWAP | pb\n");
+	//di.x = 0;
+	//while (di.x < ps.contare + 1)
+	//{
+	//	printf("%2d  %d\n", stack_s.stacka[di.x], stack_s.stackb[di.x]);
+	//	di.x++;
+	//}
+	//write(1, " _  _\n", 6);
+	//write(1, " a  b\n", 6);
 }
 
 int	main(int ac, char **av)
 {
-	int		contare;
-	int		x;
-
+	if (ac <= 0)
+	{
+		write(1, "Error\n", 7);
+		return (0);
+	}
 	stack_s.stacka = ft_arg(av);
-	contare = ft_contare(av);
-	stack_s.stackb = malloc(sizeof(int) * contare + 1);
+	ps.contare = ft_contare(av);
+	stack_s.stackb = malloc(sizeof(int) * ps.contare + 1);
 	if (!stack_s.stackb)
 		return (0);
-	stack_s.stackb[0] = 500;
-	//ft_swap_first(av);
-	//ft_rev_shift_up(av);
-	//ft_rev_shift_down(av);
-	//ss(contare);
-	stack_s.stackb = push_a(stack_s.stacka[0], stack_s.stackb, contare);
-	printf("PUSH SWAP | pa\n");
-	x = 0;
-	while (x < contare + 1)
-	{
-		printf("%2d  %d\n", stack_s.stacka[x], stack_s.stackb[x]);
-		x++;
-	}
-	write(1, " _  _\n", 6);
-	write(1, " a  b\n", 6);
-	//stack_s.stacka = push_b(stack_s.stackb[0], stack_s.stacka, contare + 1);
-	//printf("PUSH SWAP | pb\n");
-	//x = 0;
-	//while (x < contare + 1)
-	//{
-	//	printf("%2d  %d\n", stack_s.stacka[x], stack_s.stackb[x]);
-	//	x++;
-	//}
-	//write(1, " _  _\n", 6);
-	//write(1, " a  b\n", 6);
+	ft_write(av);
 	return (0);
 }
