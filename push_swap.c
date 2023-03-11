@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/10 20:38:51 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/11 19:25:01 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,32 +84,14 @@ int	ft_contare(char **av)
 	return (c);
 }
 
-void	ft_write(char **arg)
+void	sort(char **av)
 {
-	//ft_swap_first(arg);
-	ft_rev_shift_up(arg);
-	//ft_rev_shift_down(arg);
-	//ss(ps.contare);
-	//stack_s.stackb = push_a(stack_s.stacka[0], stack_s.stackb, ps.contare);
-	//printf("PUSH SWAP | pa\n");
-	//di.x = 0;
-	//while (di.x < ps.contare + 1)
-	//{
-	//	printf("%2d  %d\n", stack_s.stacka[di.x], stack_s.stackb[di.x]);
-	//	di.x++;
-	//}
-	//write(1, " _  _\n", 6);
-	//write(1, " a  b\n", 6);
-	//stack_s.stacka = push_b(stack_s.stackb[0], stack_s.stacka, ps.contare + 1);
-	//printf("PUSH SWAP | pb\n");
-	//di.x = 0;
-	//while (di.x < ps.contare + 1)
-	//{
-	//	printf("%2d  %d\n", stack_s.stacka[di.x], stack_s.stackb[di.x]);
-	//	di.x++;
-	//}
-	//write(1, " _  _\n", 6);
-	//write(1, " a  b\n", 6);
+	if (!stack_s.stackb)
+		exit(1);
+	if (ps.contare < 4)
+		ft_sort_three(av);
+	if (ps.contare > 3 && ps.contare < 5)
+		ft_sort_five(av);
 }
 
 int	main(int ac, char **av)
@@ -122,8 +104,7 @@ int	main(int ac, char **av)
 	stack_s.stacka = ft_arg(av);
 	ps.contare = ft_contare(av);
 	stack_s.stackb = malloc(sizeof(int) * ps.contare + 1);
-	if (!stack_s.stackb)
-		return (0);
-	ft_write(av);
+	//stack_s.stackb[0] = 0;
+	sort(av);
 	return (0);
 }

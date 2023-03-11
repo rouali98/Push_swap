@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/10 12:21:37 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/11 19:24:25 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,19 @@ struct s_stack
 
 /* ################## Stack A ########################## */
 
-void	ft_swap_first(char **av);
-void	ft_rev_shift_up(char **av);
-void	ft_rev_shift_down(char **av);
-int		*push_a(int nbr, int *str, int contare);
-void	ss(int contare);
+void	f_print(char *str);
+void	ft_swap_a_first(char **av);
+void	ft_rev_a_shift_up(char **av);
+void	ft_rev_a_shift_down(char **av);
+void	push_a(int nbr, int *str);
 
 /* ################## Stack B ########################## */
 
-int		*push_b(int nbr, int *str, int contare);
+void	ss(char **arg);
+void	ft_swap_b_first(char **av);
+void	ft_rev_b_shift_up(char **av);
+void	ft_rev_b_shift_down(char **av);
+void	push_b(int nbr, int *str);
 
 /* #################### PUSH SWAP UTILIS #####################*/
 
@@ -57,6 +61,11 @@ int		ft_atoi(const char *str);
 int		ft_strlen(char *str);
 char	*ft_strndup(char *str, int n);
 int		ft_word(char *str, char c);
+
+/* ################## SORT ##############################*/
+
+void	ft_sort_three(char **av);
+void	ft_sort_five(char **av);
 
 /* ####################### MAIN ########################*/
 
@@ -68,5 +77,6 @@ char	*ft_strndup(char *str, int n);
 char	**ft_split(char *str, char c);
 int		*ft_arg(char **str);
 int		ft_contare(char **av);
+void	sort(char **av);
 
 #endif

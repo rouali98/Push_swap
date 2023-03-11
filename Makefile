@@ -6,7 +6,7 @@
 #    By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 12:08:31 by rouali            #+#    #+#              #
-#    Updated: 2023/03/10 12:16:16 by rouali           ###   ########.fr        #
+#    Updated: 2023/03/11 19:09:30 by rouali           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ CFLAGS = -Wall -Wextra -Werror
 SRC =	push_swap.c \
 		push_swap_utils.c \
 		stacka.c \
-		stackb.c
+		stackb.c \
+		sort_three.c \
+		sort_five.c 
 
 OBJ = $(SRC:.c=.o)
 
