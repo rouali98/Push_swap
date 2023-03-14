@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/11 19:06:43 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/13 17:00:09 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	f_print(char *str)
 	write(1, " a  b\n", 6);
 }
 
+/* SA */
+
 void	ft_swap_a_first(char **av)
 {
 	int		swap;
@@ -34,6 +36,8 @@ void	ft_swap_a_first(char **av)
 	stack_s.stacka[1] = swap;
 	ps.contare = ft_contare(av);
 }
+
+/* RA */
 
 void	ft_rev_a_shift_up(char **av)
 {
@@ -91,6 +95,8 @@ void	ft_rev_a_shift_up(char **av)
 //	write(1, " a  b\n", 6);
 //}
 
+/* RRA */
+
 void	ft_rev_a_shift_down(char **av)
 {
 	di.x = 0;
@@ -113,22 +119,24 @@ void	ft_rev_a_shift_down(char **av)
 	}
 }
 
+/* PA */
+
 void	push_a(int nbr, int *str)
 {
 	int	*nbrs;
 
 	di.x = 1;
-	nbrs = malloc(ps.contare * sizeof(int));
+	nbrs = malloc(ps.contare + 1 * sizeof(int));
 	nbrs[0] = nbr;
-	stack_s.stacka = &stack_s.stacka[nbr];
-	while (di.x < ps.contare)
+	stack_s.stacka = &stack_s.stacka[nbr - 1];
+	while (di.x < ps.contare - 1)
 	{
 		nbrs[di.x] = str[di.x - 1];
 		di.x++;
 	}
 	printf("PUSH SWAP | pa\n");
 	di.x = 0;
-	while (di.x < ps.contare)
+	while (di.x < ps.contare - 1)
 	{
 		printf("%2d  %d\n", stack_s.stacka[di.x], nbrs[di.x]);
 		di.x++;

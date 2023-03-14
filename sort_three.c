@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:19:15 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/11 19:19:43 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/14 13:01:43 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_sort_three(char **av)
 	if (ps.contare == 1)
 	{
 		printf("%d\n", stack_s.stacka[0]);
+		write(1, " _  _\n", 6);
+		write(1, " a  b\n", 6);
 	}
 	if (ps.contare == 2)
 	{
@@ -25,7 +27,7 @@ void	ft_sort_three(char **av)
 			ft_swap_a_first(av);
 			f_print("sa");
 		}
-		if (stack_s.stacka[0] < stack_s.stacka[1])
+		else if (stack_s.stacka[0] < stack_s.stacka[1])
 		{
 			di.x = 0;
 			while (di.x < ps.contare)
@@ -59,7 +61,7 @@ void	ft_sort_three(char **av)
 			ft_rev_a_shift_down(av);
 			f_print("rra");
 		}
-		if (stack_s.stacka[0] < stack_s.stacka[2])
+		else if (stack_s.stacka[0] < stack_s.stacka[2])
 		{
 			ft_rev_a_shift_down(av);
 			f_print("rra");
@@ -71,8 +73,6 @@ void	ft_sort_three(char **av)
 	{
 		if (stack_s.stacka[1] < stack_s.stacka[2])
 		{
-			ft_swap_a_first(av);
-			f_print("sa");
 			ft_rev_a_shift_up(av);
 			f_print("ra");
 		}
@@ -92,19 +92,19 @@ void	ft_sort_three(char **av)
 			f_print("sa");
 		}
 	}
-	//ft_swap_a_first(arg);
+	//ft_swap_a_first(av);
 	//f_print("sa");
-	//ft_swap_b_first(arg);
+	//ft_swap_b_first(av);
 	//f_print("sb");
-	//ft_rev_a_shift_up(arg);
+	//ft_rev_a_shift_up(av);
 	//f_print("ra");
-	//ft_rev_b_shift_up(arg);
+	//ft_rev_b_shift_up(av);
 	//f_print("rb");
-	//ft_rev_a_shift_down(arg);
+	//ft_rev_a_shift_down(av);
 	//f_print("rra");
-	//ft_rev_b_shift_down(arg);
+	//ft_rev_b_shift_down(av);
 	//f_print("rrb");
-	//ss(arg);
+	//ss(av);
 	//f_print("ss");
 	//push_a(stack_s.stacka[0], stack_s.stackb);
 	//push_b(stack_s.stackb[0], stack_s.stacka);

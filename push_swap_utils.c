@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/10 12:25:02 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/12 15:06:09 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,29 @@ int	ft_isdigit(int n)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	j;
-	int	result;
+	int			x;
+	int			y;
+	long int	result;
 
-	i = 0;
-	j = 1;
+	x = 0;
+	y = 1;
 	result = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (str[x] == 32 || (str[x] >= 9 && str[x] <= 13))
+		x++;
+	if (str[x] == '-' || str[x] == '+')
 	{
-		if (str[i] == '-')
-			j = j * -1;
-		i++;
+		if (str[x] == '-')
+			y = y * -1;
+		x++;
 	}
-	while (ft_isdigit((int)str[i]))
+	while (ft_isdigit((int)str[x]))
 	{
-		result = result * 10 + str[i] - '0';
-		i++;
+		result = result * 10 + str[x] - '0';
+		x++;
 	}
-	return (result * j);
+	return (result * y);
 }
 
 int	ft_strlen(char *str)
@@ -74,37 +74,19 @@ char	*ft_strndup(char *str, int n)
 	return (dest);
 }
 
-//int	ft_word(char *str, char c)
-//{
-//	int	x;
-//	int	contare;
-
-//	x = 0;
-//	contare = 0;
-//	while (str[x])
-//	{
-//		if ((x == 0 && str[x] != contare) || (str[x] == \
-//		contare && str[x + 1] && str[x + 1] != contare))
-//			contare++;
-//		x++;
-//	}
-//	return (contare);
-//}
-
 int	ft_word(char *s, char c)
 {
 	int	x;
-	int	contare;
 
 	x = 0;
-	contare = 0;
+	ps.contare = 0;
 	while (s[x])
 	{
 		if ((x == 0 && s[x] != c) || (s[x] == c && s[x + 1] && s[x + 1] != c))
 		{
-			contare++;
+			ps.contare++;
 		}
 		x++;
 	}
-	return (contare);
+	return (ps.contare);
 }
