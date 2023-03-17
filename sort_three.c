@@ -6,13 +6,13 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:19:15 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/14 13:01:43 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/17 20:18:33 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_three(char **av)
+void	ft_sort_three(void)
 {
 	if (ps.contare == 1)
 	{
@@ -24,7 +24,7 @@ void	ft_sort_three(char **av)
 	{
 		if (stack_s.stacka[1] < stack_s.stacka[0])
 		{
-			ft_swap_a_first(av);
+			ft_swap_a_first();
 			f_print("sa");
 		}
 		else if (stack_s.stacka[0] < stack_s.stacka[1])
@@ -58,14 +58,14 @@ void	ft_sort_three(char **av)
 	{
 		if (stack_s.stacka[2] < stack_s.stacka[0])
 		{
-			ft_rev_a_shift_down(av);
+			ft_rev_a_shift_down();
 			f_print("rra");
 		}
 		else if (stack_s.stacka[0] < stack_s.stacka[2])
 		{
-			ft_rev_a_shift_down(av);
+			ft_rev_a_shift_down();
 			f_print("rra");
-			ft_swap_a_first(av);
+			ft_swap_a_first();
 			f_print("sa");
 		}
 	}
@@ -73,14 +73,14 @@ void	ft_sort_three(char **av)
 	{
 		if (stack_s.stacka[1] < stack_s.stacka[2])
 		{
-			ft_rev_a_shift_up(av);
+			ft_rev_a_shift_up();
 			f_print("ra");
 		}
 		if (stack_s.stacka[2] < stack_s.stacka[1])
 		{
-			ft_rev_a_shift_up(av);
+			ft_rev_a_shift_up();
 			f_print("ra");
-			ft_swap_a_first(av);
+			ft_swap_a_first();
 			f_print("sa");
 		}
 	}
@@ -88,23 +88,23 @@ void	ft_sort_three(char **av)
 	{
 		if (stack_s.stacka[0] < stack_s.stacka[2])
 		{
-			ft_swap_a_first(av);
+			ft_swap_a_first();
 			f_print("sa");
 		}
 	}
-	//ft_swap_a_first(av);
+	//ft_swap_a_first();
 	//f_print("sa");
-	//ft_swap_b_first(av);
+	//ft_swap_b_first();
 	//f_print("sb");
-	//ft_rev_a_shift_up(av);
+	//ft_rev_a_shift_up();
 	//f_print("ra");
-	//ft_rev_b_shift_up(av);
+	//ft_rev_b_shift_up();
 	//f_print("rb");
-	//ft_rev_a_shift_down(av);
+	//ft_rev_a_shift_down();
 	//f_print("rra");
-	//ft_rev_b_shift_down(av);
+	//ft_rev_b_shift_down();
 	//f_print("rrb");
-	//ss(av);
+	//ss();
 	//f_print("ss");
 	//push_a(stack_s.stacka[0], stack_s.stackb);
 	//push_b(stack_s.stackb[0], stack_s.stacka);

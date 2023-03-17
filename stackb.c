@@ -6,32 +6,30 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:43 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/11 13:40:28 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/17 20:19:09 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ss(char **av)
+void	ss(void)
 {
-	ft_swap_a_first(av);
-	ft_swap_b_first(av);
+	ft_swap_a_first();
+	ft_swap_b_first();
 }
 
-void	ft_swap_b_first(char **av)
+void	ft_swap_b_first(void)
 {
 	int		swap;
 
 	swap = stack_s.stackb[0];
 	stack_s.stackb[0] = stack_s.stackb[1];
 	stack_s.stackb[1] = swap;
-	ps.contare = ft_contare(av);
 }
 
-void	ft_rev_b_shift_up(char **av)
+void	ft_rev_b_shift_up(void)
 {
 	di.x = 0;
-	ps.contare = ft_contare(av);
 	ps.fill = ps.contare - 1;
 	while (di.x <= ps.fill)
 	{
@@ -45,9 +43,8 @@ void	ft_rev_b_shift_up(char **av)
 	}
 }
 
-void	ft_rev_b_shift_down(char **av)
+void	ft_rev_b_shift_down(void)
 {
-	ps.contare = ft_contare(av);
 	ps.fill = ps.contare - 1;
 	while (di.x <= ps.fill)
 	{
@@ -65,15 +62,15 @@ void	ft_rev_b_shift_down(char **av)
 	}
 }
 
-void	push_b(int nbr, int *str)
+void	push_b(int *str)
 {
 	int	x;
 	int	*nbrs;
 
 	x = 1;
 	nbrs = malloc(ps.contare + 1 * sizeof(int));
-	nbrs[0] = nbr;
-	stack_s.stackb = &stack_s.stackb[nbr];
+	nbrs[0] = stack_s.stackb[0];
+	stack_s.stackb = &stack_s.stackb[1];
 	while (x < ps.contare + 1)
 	{
 		nbrs[x] = str[x - 1];

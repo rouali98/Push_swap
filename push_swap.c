@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/13 15:52:40 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/17 20:10:16 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_contare(char **av)
 	return (c);
 }
 
-void	sort(char **av)
+void	sort(void)
 {
 	//if (stack_s.stackb > 2147483647)
 	//{
@@ -93,9 +93,9 @@ void	sort(char **av)
 	if (!stack_s.stackb)
 		exit(1);
 	if (ps.contare < 4)
-		ft_sort_three(av);
+		ft_sort_three();
 	if (ps.contare > 3 && ps.contare < 6)
-		ft_sort_five(av);
+		ft_sort_five();
 }
 
 int	main(int ac, char **av)
@@ -109,6 +109,6 @@ int	main(int ac, char **av)
 	ps.contare = ft_contare(av);
 	stack_s.stackb = malloc(sizeof(int) * ps.contare + 1);
 	stack_s.stackb[0] = 0;
-	sort(av);
+	sort();
 	return (0);
 }

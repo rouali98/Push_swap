@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/12 15:07:46 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/17 20:19:04 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,31 +42,32 @@ struct s_stack
 /* ################## Stack A ########################## */
 
 void	f_print(char *str);
-void	ft_swap_a_first(char **av);
-void	ft_rev_a_shift_up(char **av);
-void	ft_rev_a_shift_down(char **av);
-void	push_a(int nbr, int *str);
+void	ft_swap_a_first(void);
+void	ft_rev_a_shift_up(void);
+void	ft_rev_a_shift_down(void);
+void	push_a(int *str);
 
 /* ################## Stack B ########################## */
 
-void	ss(char **arg);
-void	ft_swap_b_first(char **av);
-void	ft_rev_b_shift_up(char **av);
-void	ft_rev_b_shift_down(char **av);
-void	push_b(int nbr, int *str);
+void	ss(void);
+void	ft_swap_b_first(void);
+void	ft_rev_b_shift_up(void);
+void	ft_rev_b_shift_down(void);
+void	push_b(int *str);
+void	f_printp(char *str);
 
 /* #################### PUSH SWAP UTILIS #####################*/
 
 int		ft_isdigit(int n);
-long int		ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 int		ft_strlen(char *str);
 char	*ft_strndup(char *str, int n);
 int		ft_word(char *str, char c);
 
 /* ################## SORT ##############################*/
 
-void	ft_sort_three(char **av);
-void	ft_sort_five(char **av);
+void	ft_sort_three(void);
+void	ft_sort_five(void);
 
 /* ####################### MAIN ########################*/
 
@@ -77,6 +78,6 @@ char	*ft_strndup(char *str, int n);
 char	**ft_split(char *str, char c);
 int		*ft_arg(char **str);
 int		ft_contare(char **av);
-void	sort(char **av);
+void	sort(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/13 17:00:09 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/17 20:19:41 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,34 @@ void	f_print(char *str)
 	write(1, " a  b\n", 6);
 }
 
+void	f_printp(char *str)
+{
+	printf("PUSH SWAP | %s\n", str);
+	di.x = 0;
+	while (di.x < ps.contare)
+		printf("%2d\n", stack_s.stacka[di.x++]);
+	while (di.x < ps.contare)
+		printf("%d\n", stack_s.stackb[di.x++]);
+	write(1, " _  _\n", 6);
+	write(1, " a  b\n", 6);
+}
+
 /* SA */
 
-void	ft_swap_a_first(char **av)
+void	ft_swap_a_first(void)
 {
 	int		swap;
 
 	swap = stack_s.stacka[0];
 	stack_s.stacka[0] = stack_s.stacka[1];
 	stack_s.stacka[1] = swap;
-	ps.contare = ft_contare(av);
 }
 
 /* RA */
 
-void	ft_rev_a_shift_up(char **av)
+void	ft_rev_a_shift_up(void)
 {
 	di.x = 0;
-	stack_s.stacka = ft_arg(av);
-	ps.contare = ft_contare(av);
 	ps.fill = ps.contare - 1;
 	while (di.x <= ps.fill)
 	{
@@ -97,11 +106,9 @@ void	ft_rev_a_shift_up(char **av)
 
 /* RRA */
 
-void	ft_rev_a_shift_down(char **av)
+void	ft_rev_a_shift_down(void)
 {
 	di.x = 0;
-	stack_s.stacka = ft_arg(av);
-	ps.contare = ft_contare(av);
 	ps.fill = ps.contare - 1;
 	while (di.x <= ps.fill)
 	{
@@ -117,21 +124,23 @@ void	ft_rev_a_shift_down(char **av)
 			stack_s.stacka[ps.fill] = stack_s.stacka[ps.fill - 1];
 		ps.fill--;
 	}
+	stack_s.stacka = stack_s.stacka;
 }
 
 /* PA */
 
-void	push_a(int nbr, int *str)
+void	push_a(int *str)
 {
 	int	*nbrs;
 
 	di.x = 1;
-	nbrs = malloc(ps.contare + 1 * sizeof(int));
-	nbrs[0] = nbr;
-	stack_s.stacka = &stack_s.stacka[nbr - 1];
+	nbrs = malloc(100 * sizeof(int));
+	nbrs[0] = stack_s.stacka[0];
+	int b = 0;
+	stack_s.stacka = &stack_s.stacka[1];
 	while (di.x < ps.contare - 1)
 	{
-		nbrs[di.x] = str[di.x - 1];
+		nbrs[di.x] = str[b++];
 		di.x++;
 	}
 	printf("PUSH SWAP | pa\n");
