@@ -6,75 +6,75 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:08:59 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/17 20:28:40 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/19 16:46:04 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//void rra_1(char **av)
-//{
-//	if(stack_s.stacka[1] < stack_s.stacka[3])
-//	{
-//		ft_rev_a_shift_down();
-//		f_print("rra");
-//		//push_a(stack_s.stacka[0], stack_s.stackb);
-//	}
+int	ft_min(void)
+{
+	int	i;
+	int	min;
 
-//}
-//void rra_2(char **av)
-//{
-//	if(stack_s.stacka[0] < stack_s.stacka[3])
-//	{
-//		ft_rev_a_shift_down();
-//		f_print("rra");
-//		//push_a(stack_s.stacka[0], stack_s.stackb);
-//	}
-//}
+	i = 0;
+	di.x = 0;
+	min = stack_s.stacka[0];
+	while (di.x < ps.contare)
+	{
+		if (stack_s.stacka[di.x] < min)
+		{
+			min = stack_s.stacka[di.x];
+		}
+		di.x++;
+	}
+	i++;
+	return (min);
+}
 
-#include <limits.h>
+void	ft_pa_rra(void)
+{
+	int	min;
+	int	ph;
+
+	ph = 0;
+	int i = 0;
+	min = ft_min();
+	while (ph < ps.contare && i < 5)
+	{
+		if (stack_s.stacka[0] == min)
+		{
+			push_a();
+			ps.contare = ps.contare - 1;
+			break ;
+		}
+		else
+		{
+			ft_rev_a_shift_down();
+			f_print("rra");
+		}
+		ph++;
+		i++;
+	}
+}
 
 void	ft_sort_five(void)
 {
-	//int i = 0;
-	//if (ps.contare == 4)
-	//{
-	//		if(stack_s.stacka[0] < stack_s.stacka[3] && stack_s.stacka[0] < stack_s.stacka[2])
-	//		{
-	//			while (i < 1)
-	//			{
-	//				if(stack_s.stacka[0] < stack_s.stacka[3])
-	//				{
-	//					printf("1\n");
-	//					ft_rev_a_shift_down(av);
-	//					f_print("rra");
-	//					//push_a(stack_s.stacka[0], stack_s.stackb);
-	//				}
-	//			i++;
-	//			}
-	//		}
-	//}
-	int i = 0;
-	int min = stack_s.stacka[0];
-
-	while (i < ps.contare)
+	if (ps.contare == 4)
 	{
-		if (stack_s.stacka[i] < min)
-		{
-			min = stack_s.stacka[i];
-		}
-		i++;
+		ft_pa_rra();
+		ft_sort_three();
+		push_b();
+		ps.contare = ps.contare + 1;
 	}
-	int pshkh = 0;
-	while (pshkh < ps.contare) {
-		if (stack_s.stacka[0] == min) {
-			push_a(stack_s.stackb);
-		}else {
-			ft_rev_a_shift_down();
-		}
-		pshkh++;
+	if (ps.contare == 5)
+	{
+		ft_pa_rra();
+		ft_pa_rra();
+		ft_sort_three();
+		push_b();
+		ps.contare = ps.contare + 1;
+		push_b();
+		ps.contare = ps.contare + 1;
 	}
-	ft_sort_three();
-	push_b(stack_s.stacka);
-	printf("min = %d", min);
 }

@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/17 20:10:16 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/19 16:51:06 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,6 @@ int	ft_contare(char **av)
 
 void	sort(void)
 {
-	//if (stack_s.stackb > 2147483647)
-	//{
-	//	exit(1);
-	//}
 	if (!stack_s.stackb)
 		exit(1);
 	if (ps.contare < 4)

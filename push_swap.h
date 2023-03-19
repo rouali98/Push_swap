@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/17 20:19:04 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/19 16:50:39 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <limits.h>
 
 struct s_push_swap
 {
@@ -45,7 +44,7 @@ void	f_print(char *str);
 void	ft_swap_a_first(void);
 void	ft_rev_a_shift_up(void);
 void	ft_rev_a_shift_down(void);
-void	push_a(int *str);
+void	push_a(void);
 
 /* ################## Stack B ########################## */
 
@@ -53,7 +52,7 @@ void	ss(void);
 void	ft_swap_b_first(void);
 void	ft_rev_b_shift_up(void);
 void	ft_rev_b_shift_down(void);
-void	push_b(int *str);
+void	push_b(void);
 void	f_printp(char *str);
 
 /* #################### PUSH SWAP UTILIS #####################*/

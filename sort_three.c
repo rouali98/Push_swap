@@ -6,55 +6,16 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:19:15 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/17 20:18:33 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/19 16:49:13 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_three(void)
+void	ft_rra_sa(void)
 {
-	if (ps.contare == 1)
-	{
-		printf("%d\n", stack_s.stacka[0]);
-		write(1, " _  _\n", 6);
-		write(1, " a  b\n", 6);
-	}
-	if (ps.contare == 2)
-	{
-		if (stack_s.stacka[1] < stack_s.stacka[0])
-		{
-			ft_swap_a_first();
-			f_print("sa");
-		}
-		else if (stack_s.stacka[0] < stack_s.stacka[1])
-		{
-			di.x = 0;
-			while (di.x < ps.contare)
-			{
-				printf("%2d \n", stack_s.stacka[di.x]);
-				di.x++;
-			}
-			write(1, " _  _\n", 6);
-			write(1, " a  b\n", 6);
-		}
-		return ;
-	}
-	if (stack_s.stacka[0] < stack_s.stacka[1] && stack_s.stacka[0] < stack_s.stacka[2])
-	{
-		if (stack_s.stacka[1] < stack_s.stacka[2])
-		{
-			di.x = 0;
-			while (di.x < ps.contare)
-			{
-				printf("%2d \n", stack_s.stacka[di.x]);
-				di.x++;
-			}
-			write(1, " _  _\n", 6);
-			write(1, " a  b\n", 6);
-		}
-	}
-	 if (stack_s.stacka[0] < stack_s.stacka[1] && stack_s.stacka[2] < stack_s.stacka[1])
+	if (stack_s.stacka[0] < stack_s.stacka[1] \
+	&& stack_s.stacka[2] < stack_s.stacka[1])
 	{
 		if (stack_s.stacka[2] < stack_s.stacka[0])
 		{
@@ -69,7 +30,12 @@ void	ft_sort_three(void)
 			f_print("sa");
 		}
 	}
-	if (stack_s.stacka[1] < stack_s.stacka[0] && stack_s.stacka[2] < stack_s.stacka[0])
+}
+
+void	ft_ra_sa(void)
+{
+	if (stack_s.stacka[1] < stack_s.stacka[0] \
+	&& stack_s.stacka[2] < stack_s.stacka[0])
 	{
 		if (stack_s.stacka[1] < stack_s.stacka[2])
 		{
@@ -84,7 +50,23 @@ void	ft_sort_three(void)
 			f_print("sa");
 		}
 	}
-	if (stack_s.stacka[1] < stack_s.stacka[0] && stack_s.stacka[1] < stack_s.stacka[2])
+}
+
+void	ft_sort_three(void)
+{
+	if (ps.contare == 2)
+	{
+		if (stack_s.stacka[1] < stack_s.stacka[0])
+		{
+			ft_swap_a_first();
+			f_print("sa");
+		}
+		return ;
+	}
+	ft_rra_sa();
+	ft_ra_sa();
+	if (stack_s.stacka[1] < stack_s.stacka[0] \
+	&& stack_s.stacka[1] < stack_s.stacka[2])
 	{
 		if (stack_s.stacka[0] < stack_s.stacka[2])
 		{
@@ -92,20 +74,4 @@ void	ft_sort_three(void)
 			f_print("sa");
 		}
 	}
-	//ft_swap_a_first();
-	//f_print("sa");
-	//ft_swap_b_first();
-	//f_print("sb");
-	//ft_rev_a_shift_up();
-	//f_print("ra");
-	//ft_rev_b_shift_up();
-	//f_print("rb");
-	//ft_rev_a_shift_down();
-	//f_print("rra");
-	//ft_rev_b_shift_down();
-	//f_print("rrb");
-	//ss();
-	//f_print("ss");
-	//push_a(stack_s.stacka[0], stack_s.stackb);
-	//push_b(stack_s.stackb[0], stack_s.stacka);
 }

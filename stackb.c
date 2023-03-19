@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:43 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/17 20:19:09 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/19 16:03:04 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ss(void)
 	ft_swap_b_first();
 }
 
+/* SB */
+
 void	ft_swap_b_first(void)
 {
 	int		swap;
@@ -26,6 +28,8 @@ void	ft_swap_b_first(void)
 	stack_s.stackb[0] = stack_s.stackb[1];
 	stack_s.stackb[1] = swap;
 }
+
+/* RB */
 
 void	ft_rev_b_shift_up(void)
 {
@@ -42,6 +46,8 @@ void	ft_rev_b_shift_up(void)
 		di.x++;
 	}
 }
+
+/* RRB */
 
 void	ft_rev_b_shift_down(void)
 {
@@ -60,29 +66,32 @@ void	ft_rev_b_shift_down(void)
 			stack_s.stackb[ps.fill] = stack_s.stackb[ps.fill - 1];
 		ps.fill--;
 	}
+	stack_s.stackb = stack_s.stackb;
 }
 
-void	push_b(int *str)
+/* PB */
+
+void	push_b(void)
 {
-	int	x;
 	int	*nbrs;
 
-	x = 1;
-	nbrs = malloc(ps.contare + 1 * sizeof(int));
+	di.x = 1;
+	nbrs = malloc(ps.contare + 1 * sizeof(int *));
 	nbrs[0] = stack_s.stackb[0];
 	stack_s.stackb = &stack_s.stackb[1];
-	while (x < ps.contare + 1)
+	while (di.x < ps.contare + 1)
 	{
-		nbrs[x] = str[x - 1];
-		x++;
+		nbrs[di.x] = stack_s.stacka[di.x - 1];
+		di.x++;
 	}
+	stack_s.stacka = nbrs;
 	printf("PUSH SWAP | pb\n");
-	di.x = 0;
+	/*di.x = 0;
 	while (di.x < ps.contare + 1)
 	{
 		printf("%2d  %d\n", nbrs[di.x], stack_s.stackb[di.x]);
 		di.x++;
 	}
 	write(1, " _  _\n", 6);
-	write(1, " a  b\n", 6);
+	write(1, " a  b\n", 6);*/
 }
