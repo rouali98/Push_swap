@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:08:59 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/19 16:46:04 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/19 16:59:55 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,8 @@ void	ft_pa_rra(void)
 	int	ph;
 
 	ph = 0;
-	int i = 0;
 	min = ft_min();
-	while (ph < ps.contare && i < 5)
+	while (ph < ps.contare)
 	{
 		if (stack_s.stacka[0] == min)
 		{
@@ -54,7 +53,6 @@ void	ft_pa_rra(void)
 			f_print("rra");
 		}
 		ph++;
-		i++;
 	}
 }
 

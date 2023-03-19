@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:43 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/19 16:03:04 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/19 17:01:36 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,4 @@ void	push_b(void)
 	}
 	stack_s.stacka = nbrs;
 	printf("PUSH SWAP | pb\n");
-	/*di.x = 0;
-	while (di.x < ps.contare + 1)
-	{
-		printf("%2d  %d\n", nbrs[di.x], stack_s.stackb[di.x]);
-		di.x++;
-	}
-	write(1, " _  _\n", 6);
-	write(1, " a  b\n", 6);*/
 }
