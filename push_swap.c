@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/19 16:51:06 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/20 15:40:37 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void	sort(void)
 		ft_sort_three();
 	if (ps.contare > 3 && ps.contare < 6)
 		ft_sort_five();
+	if (ps.contare > 5 && ps.contare <= 100)
+		ft_sort_hundred();
 }
 
 int	main(int ac, char **av)

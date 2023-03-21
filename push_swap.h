@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/19 16:50:39 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/20 15:40:56 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ int		ft_word(char *str, char c);
 
 void	ft_sort_three(void);
 void	ft_sort_five(void);
+void	ft_sort_hundred(void);
+int		ft_min(void);
+void	ft_pa_rra(void);
 
 /* ####################### MAIN ########################*/
 
