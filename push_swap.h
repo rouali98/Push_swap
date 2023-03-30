@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/20 15:40:56 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/28 23:15:36 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ struct s_push_swap
 	int		contare;
 	int		fill;
 	int		c;
+	int		sb;
 } ps;
 
 struct s_direction
@@ -67,7 +68,7 @@ int		ft_word(char *str, char c);
 
 void	ft_sort_three(void);
 void	ft_sort_five(void);
-void	ft_sort_hundred(void);
+void	ft_sort_hundred(char **av);
 int		ft_min(void);
 void	ft_pa_rra(void);
 
@@ -80,6 +81,6 @@ char	*ft_strndup(char *str, int n);
 char	**ft_split(char *str, char c);
 int		*ft_arg(char **str);
 int		ft_contare(char **av);
-void	sort(void);
+void	sort(char **av);
 
 #endif

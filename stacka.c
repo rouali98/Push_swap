@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacka.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/20 15:47:21 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:43:33 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,21 @@
 
 void	f_print(char *str)
 {
-	printf("PUSH SWAP | %s\n", str);
+	printf("%s\n", str);
+	// di.x = 0;
+	// printf("============ stack A ========== \n");
+	// while (di.x < ps.contare)
+	// {
+	// 	printf("%d\n", stack_s.stacka[di.x]);
+	// 	di.x++;
+	// }
+	// di.x = 0;
+	// printf("============ stack B =========== \n");
+	// while (di.x < ps.sb)
+	// {
+	// 	printf("%d\n", stack_s.stackb[di.x]);
+	// 	di.x++;
+	// }
 }
 
 /* SA */
@@ -76,23 +90,32 @@ void	push_a(void)
 	int	*nbrs;
 
 	di.x = 1;
-	nbrs = malloc(100 * sizeof(int));
+	ps.sb++;
+	nbrs = malloc((ps.sb + 1) * sizeof(int));
 	nbrs[0] = stack_s.stacka[0];
 	di.y = 0;
 	stack_s.stacka = &stack_s.stacka[1];
-	while (di.x < ps.contare)
+	while (di.y < ps.sb)
 	{
-		nbrs[di.x] = stack_s.stackb[di.y++];
+		nbrs[di.x] = stack_s.stackb[di.y];
 		di.x++;
+		di.y++;
 	}
+ 
 	stack_s.stackb = nbrs;
-	printf("PUSH SWAP | pa\n");
-	di.x = 0;
-	while (di.x < ps.contare - 1)
-	{
-		printf("%2d  %d\n", stack_s.stacka[di.x], nbrs[di.x]);
-		di.x++;
-	}
-	write(1, " _  _\n", 6);
-	write(1, " a  b\n", 6);
+	printf("pa\n");
+	// di.x = 0;
+	// printf("============ stack A ========== \n");
+	// while (di.x < ps.contare)
+	// {
+	// 	printf("%d\n", stack_s.stacka[di.x]);
+	// 	di.x++;
+	// }
+	// di.x = 0;
+	// printf("============ stack B =========== \n");
+	// while (di.x < ps.sb)
+	// {
+	// 	printf("%d\n", nbrs[di.x]);
+	// 	di.x++;
+	// }
 }

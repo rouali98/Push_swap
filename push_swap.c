@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/20 15:40:37 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:43:39 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_contare(char **av)
 	return (c);
 }
 
-void	sort(void)
+void	sort(char **av)
 {
 	if (!stack_s.stackb)
 		exit(1);
@@ -93,20 +93,28 @@ void	sort(void)
 	if (ps.contare > 3 && ps.contare < 6)
 		ft_sort_five();
 	if (ps.contare > 5 && ps.contare <= 100)
-		ft_sort_hundred();
+		ft_sort_hundred(av);
 }
 
 int	main(int ac, char **av)
-{
+{	
 	if (ac <= 0)
 	{
 		write(1, "Error\n", 7);
 		return (0);
 	}
 	stack_s.stacka = ft_arg(av);
-	ps.contare = ft_contare(av);
-	stack_s.stackb = malloc(sizeof(int) * ps.contare + 1);
+	ps.sb = 0;
+	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
 	stack_s.stackb[0] = 0;
-	sort();
-	return (0);
+	ps.contare = ft_contare(av);
+	sort(av);
+	di.x = 0;
+	while (di.x < ps.sb)
+	{
+		printf("%2d  %d\n", stack_s.stacka[di.x], stack_s.stackb[di.x]);
+		di.x++;
+	}
+	write(1, " _  _\n", 6);
+	write(1, " a  b\n", 6);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stackb.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:43 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/20 17:01:34 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:43:14 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_swap_b_first(void)
 void	ft_rev_b_shift_up(void)
 {
 	di.x = 0;
-	ps.fill = ps.contare - 1;
+	ps.fill = ps.sb - 1;
 	while (di.x <= ps.fill)
 	{
 		if (di.x == 0)
@@ -51,10 +51,11 @@ void	ft_rev_b_shift_up(void)
 
 void	ft_rev_b_shift_down(void)
 {
-	ps.fill = ps.contare - 1;
+	di.x = 0;
+	ps.fill = ps.sb - 1;
 	while (di.x <= ps.fill)
 	{
-		if (ps.fill == ps.contare - 1)
+		if (ps.fill == ps.sb - 1)
 		{
 			ps.c = stack_s.stackb[di.x];
 			stack_s.stackb[di.x++] = stack_s.stackb[ps.fill];
@@ -76,22 +77,60 @@ void	push_b(void)
 	int	*nbrs;
 
 	di.x = 1;
-	nbrs = malloc(ps.contare + 1 * sizeof(int *));
+	ps.sb--;
+	nbrs = malloc((ps.sb + 1) * sizeof(int));
 	nbrs[0] = stack_s.stackb[0];
+	di.y = 0;
 	stack_s.stackb = &stack_s.stackb[1];
-	while (di.x < ps.contare + 1)
+	while (di.x <= ps.contare)
 	{
-		nbrs[di.x] = stack_s.stacka[di.x - 1];
+		nbrs[di.x] = stack_s.stacka[di.y++];
 		di.x++;
 	}
 	stack_s.stacka = nbrs;
-	printf("PUSH SWAP | pb\n");
-	di.x = 0;
-	while (di.x < ps.contare + 1)
-	{
-		printf("%2d  %d\n", nbrs[di.x], stack_s.stackb[di.x]);
-		di.x++;
-	}
-	write(1, " _  _\n", 6);
-	write(1, " a  b\n", 6);
+	printf("pb\n");
+	// di.x = 0;
+	// printf("============ stack A ========== \n");
+	// while (di.x < ps.contare)
+	// {
+	// 	printf("%d\n", stack_s.stacka[di.x]);
+	// 	di.x++;
+	// }
+	// di.x = 0;
+	// printf("============ stack B =========== \n");
+	// while (di.x < ps.sb)
+	// {
+	// 	printf("%d\n", nbrs[di.x]);
+	// 	di.x++;
+	// }
 }
+
+/* PB */
+
+// void	push_b(void)
+// {
+// 	int	*nbrs;
+
+// 	di.x = 1;	
+// 	// ps.contare++;
+// 	// ps.sb--;
+// 	nbrs = malloc((ps.sb + 1) * sizeof(int));
+// 	nbrs[0] = stack_s.stackb[0];
+// 	di.y = 0;
+// 	stack_s.stackb = &stack_s.stackb[1];
+// 	while (di.x <= ps.contare)
+// 	{
+// 		nbrs[di.x] = stack_s.stacka[di.y++];
+// 		di.x++;
+// 	}
+// 	stack_s.stacka = nbrs;
+// 	printf("pb\n");
+// 	// di.x = 0;
+// 	// while (di.x < ps.contare + 1)
+// 	// {
+// 	// 	printf("%2d  %d\n", nbrs[di.x], stack_s.stackb[di.x]);
+// 	// 	di.x++;
+// 	// }
+// 	// write(1, " _  _\n", 6);
+// 	// write(1, " a  b\n", 6);
+// }

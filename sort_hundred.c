@@ -6,88 +6,82 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:31 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/24 15:50:07 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/30 16:23:14 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//int	ft_min_hundred(void)
-//{
-//	int	i;
-//	int	min;
+int *ft_arrange(char **av)
+{
+	int	key;
+	int	*arr;
 
-//	i = 0;
-//	di.x = 0;
-//	min = stack_s.stacka[0];
-//	while (di.x < ps.contare)
-//	{
-//		if (stack_s.stacka[di.x] < min)
-//		{
-//			min = stack_s.stacka[di.x];
-//		}
-//		di.x++;
-//	}
-//	i++;
-//	return (min);
-//}
+	arr = ft_arg(av);
+	ps.contare = ft_contare(av);
+	di.x = 1;
+	while (di.x < ps.contare)
+	{
+		key = arr[di.x];
+		di.y = di.x - 1;
+		while (di.y >= 0 && arr[di.y] > key)
+		{
+			arr[di.y + 1] = arr[di.y];
+			di.y = di.y - 1;
+		}
+		arr[di.y + 1] = key;
+		di.x++;
+	}
+	return (arr);
+}
 
-//void	ft_pa_rra_hundred(void)
-//{
-//	int	min;
-//	int	ph;
-
-//	ph = 0;
-//	min = ft_min();
-//	while (ph < ps.contare)
-//	{
-//		if (stack_s.stacka[0] == min)
-//		{
-//			push_a();
-//			ps.contare = ps.contare - 1;
-//			break ;
-//		}
-//		else
-//		{
-//			ft_rev_a_shift_down();
-//			f_print("rra");
-//		}
-//		ph++;
-//	}
-//}
-
-//void	ft_sort_hundred(void)
-//{
-//	int	i = 0;
-
-//	while (i <= 5)
-//	{
-//		ft_pa_rra();
-//		i++;
-//	}
-//	ps.contare = ps.contare + 1;
-//}
-
-void	ft_sort_hundred(void)
+void ft_sort_hundred(char **av)
 {
 	int	x;
-	int	y;
+	int	start;
+	int	end;
+	int	*arr;
+	int	save;
 
 	x = 0;
-	while (stack_s.stacka[x])
+	arr = ft_arrange(av);
+	save = ps.contare - 1;
+	start = 0;
+	end = 15;
+	if (end > save)
 	{
-		y = 10;
-		if (stack_s.stacka[x] >= x && stack_s.stacka[x] <= y)
+		end = save;
+	}
+	while (ps.contare)
+	{
+		if ((stack_s.stacka[0] >= arr[start] && stack_s.stacka[0] <= arr[end]) && ps.contare)
+		{	
+			push_a();
+			if (end < save)
+			{
+				start++;
+				end++;
+			}
+			ps.contare--;
+		}
+		if ((stack_s.stacka[0] < arr[start]) && ps.contare)
 		{
 			push_a();
-			ps.contare = ps.contare - 1;
+			ft_rev_b_shift_up();
+			f_print("rb\n");
+			ps.contare--;
+			if (end < save)
+			{
+				start++;
+				end++;
+			}
 		}
-		else
+		if (stack_s.stacka[0] > arr[end])
 		{
-			x++;
-			y++;
+			ft_rev_a_shift_up();
+			f_print("ra");
+
 		}
-		x++;
-		y++;
 	}
+	printf("\n");
 }
