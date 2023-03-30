@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/28 23:15:36 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/30 18:04:34 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ struct s_direction
 	int	x;
 	int	y;
 	int	z;
+	int	start;
+	int	end;
 } di;
 
 struct s_stack
@@ -71,6 +73,9 @@ void	ft_sort_five(void);
 void	ft_sort_hundred(char **av);
 int		ft_min(void);
 void	ft_pa_rra(void);
+void	ft_confined(int *arr, int save);
+void	ft_smaller(int *arr, int save);
+void	ft_larger(int *arr);
 
 /* ####################### MAIN ########################*/
 

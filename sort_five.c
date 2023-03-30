@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:08:59 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/30 14:23:58 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/30 18:06:57 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ int	ft_min(void)
 	while (di.x < ps.contare)
 	{
 		if (stack_s.stacka[di.x] < min)
-		{
 			min = stack_s.stacka[di.x];
-		}
 		di.x++;
 	}
 	i++;

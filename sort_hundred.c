@@ -6,13 +6,13 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:31 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/30 16:23:14 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/30 18:16:12 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *ft_arrange(char **av)
+int	*ft_arrange(char **av)
 {
 	int	key;
 	int	*arr;
@@ -35,53 +35,70 @@ int *ft_arrange(char **av)
 	return (arr);
 }
 
-void ft_sort_hundred(char **av)
+void	ft_confined(int *arr, int save)
+{
+	if ((stack_s.stacka[0] >= arr[di.start] \
+	&& stack_s.stacka[0] <= arr[di.end]) && ps.contare)
+	{	
+		push_a();
+		if (di.end < save)
+		{
+			di.start++;
+			di.end++;
+		}
+		ps.contare--;
+	}
+}
+
+void	ft_smaller(int *arr, int save)
+{
+	if ((stack_s.stacka[0] < arr[di.start]) && ps.contare)
+	{
+		push_a();
+		ft_rev_b_shift_up();
+		f_print("rb\n");
+		ps.contare--;
+		if (di.end < save)
+		{
+			di.start++;
+			di.end++;
+		}
+	}
+}
+
+void	ft_range(int *arr, int save)
+{
+	ft_confined(arr, save);
+	ft_smaller(arr, save);
+	ft_larger(arr);
+}
+
+void	ft_larger(int *arr)
+{
+	if (stack_s.stacka[0] > arr[di.end])
+	{
+		ft_rev_a_shift_up();
+		f_print("ra");
+	}
+}
+
+void	ft_sort_hundred(char **av)
 {
 	int	x;
-	int	start;
-	int	end;
 	int	*arr;
 	int	save;
 
 	x = 0;
 	arr = ft_arrange(av);
 	save = ps.contare - 1;
-	start = 0;
-	end = 15;
-	if (end > save)
-	{
-		end = save;
-	}
+	di.start = 0;
+	di.end = 15;
+	if (di.end > save)
+		di.end = save;
 	while (ps.contare)
 	{
-		if ((stack_s.stacka[0] >= arr[start] && stack_s.stacka[0] <= arr[end]) && ps.contare)
-		{	
-			push_a();
-			if (end < save)
-			{
-				start++;
-				end++;
-			}
-			ps.contare--;
-		}
-		if ((stack_s.stacka[0] < arr[start]) && ps.contare)
-		{
-			push_a();
-			ft_rev_b_shift_up();
-			f_print("rb\n");
-			ps.contare--;
-			if (end < save)
-			{
-				start++;
-				end++;
-			}
-		}
-		if (stack_s.stacka[0] > arr[end])
-		{
-			ft_rev_a_shift_up();
-			f_print("ra");
-
-		}
+		ft_range(arr, save);
 	}
+	printf("arr = %d\n", arr[1]);
 	printf("\n");
 }
