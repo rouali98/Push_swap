@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/30 18:06:36 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/31 21:48:32 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,12 +107,4 @@ int	main(int ac, char **av)
 	stack_s.stackb[0] = 0;
 	ps.contare = ft_contare(av);
 	sort(av);
-	di.x = 0;
-	while (di.x < ps.sb)
-	{
-		printf("%2d  %d\n", stack_s.stacka[di.x], stack_s.stackb[di.x]);
-		di.x++;
-	}
-	write(1, " _  _\n", 6);
-	write(1, " a  b\n", 6);
 }
