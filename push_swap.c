@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/31 23:58:55 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 02:20:52 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,12 @@ void	sort(char **av)
 		exit(1);
 	if (ps.contare < 4)
 		ft_sort_three();
-	if (ps.contare > 3 && ps.contare < 6)
+	if (ps.contare > 3 && ps.contare <= 5)
 		ft_sort_five();
 	if (ps.contare > 5 && ps.contare <= 100)
 		ft_sort_hundred(av);
+	if (ps.contare > 100 && ps.contare <= 500)
+		ft_sort_fivehundred(av);
 }
 
 int	main(int ac, char **av)
@@ -108,7 +110,7 @@ int	main(int ac, char **av)
 	ps.contare = ft_contare(av);
 	sort(av);
 	di.x = 0;
-	while (di.x < ps.contare - 1)
+	while (di.x < ps.contare)
 	{
 		printf("%d\n", stack_s.stacka[di.x]);
 		di.x++;
