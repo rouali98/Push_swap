@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:31 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/31 21:56:00 by rouali           ###   ########.fr       */
+/*   Updated: 2023/03/31 23:57:18 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,9 @@ void	ft_sort_hundred(char **av)
 	int	save;
 	int	max;
 	int	med;
+	int x;
 
-	di.x = 0;
+	x = 0;
 	arr = ft_arrange(av);
 	save = ps.contare - 1;
 	di.start = 0;
@@ -139,22 +140,22 @@ void	ft_sort_hundred(char **av)
 		med = ps.sb / 2;
 		if (max > med)
 		{
-			di.x = ps.sb - 1;
-			while (di.x >= max)
+			x = ps.sb - 1;
+			while (x >= max)
 			{
 				ft_rev_b_shift_down();
 				f_print("rrb");
-				di.x--;
+				x--;
 			}
 		}
 		else
 		{
-			di.x = 0;
-			while (di.x < max)
+			x = 0;
+			while (x < max)
 			{
 				ft_rev_b_shift_up();
 				f_print("rb");
-				di.x++;
+				x++;
 			}
 		}
 		ps.contare++;
