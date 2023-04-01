@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:19:15 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/29 14:26:19 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 15:32:41 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ft_ra_sa(void)
 
 void	ft_sort_three(void)
 {
+	ft_duplicate();
 	if (ps.contare == 2)
 	{
 		if (stack_s.stacka[1] < stack_s.stacka[0])

@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 01:58:36 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 22:17:17 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,6 @@
 void	f_print(char *str)
 {
 	printf("%s\n", str);
-	// di.x = 0;
-	// printf("============ stack A ========== \n");
-	// while (di.x < ps.contare)
-	// {
-	// 	printf("%d\n", stack_s.stacka[di.x]);
-	// 	di.x++;
-	// }
-	// di.x = 0;
-	// printf("============ stack B =========== \n");
-	// while (di.x < ps.sb)
-	// {
-	// 	printf("%d\n", stack_s.stackb[di.x]);
-	// 	di.x++;
-	// }
 }
 
 /* SA */
@@ -102,5 +88,5 @@ void	push_a(void)
 	}
 	ps.sb++;
 	stack_s.stackb = nbrs;
-	printf("pa\n");
+	write(1, "pa\n", 3);
 }

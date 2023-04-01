@@ -6,11 +6,12 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 10:53:30 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 23:21:40 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <ctype.h>
 
 char	**ft_split(char *str, char c)
 {
@@ -92,40 +93,41 @@ void	sort(char **av)
 		ft_sort_five();
 	if (ps.contare > 5 && ps.contare <= 100)
 		ft_sort_hundred(av);
-	if (ps.contare > 100 && ps.contare <= 500)
+	if (ps.contare > 100)
 		ft_sort_fivehundred(av);
 }
 
 int	main(int ac, char **av)
-{	
+{
+	int	i;
+
 	if (ac <= 0)
 	{
 		write(1, "Error\n", 7);
 		return (0);
 	}
 	stack_s.stacka = ft_arg(av);
-	// printf("|| %d ||\n", stack_s.stacka[0]);
-	// int x = 0;
-	// printf("stack a = %d\n", stack_s.stacka[x]);
-	// while (ps.contare >= x)
-	// {
-	// 	// printf("x = %d\n", x);
-	// 	if ((stack_s.stacka[x] > 2147483647 || stack_s.stacka[x] < -2147483648) && ps.contare)
-	// 	{
-	// 		printf("#ERROR#\n");
-	// 		exit(1);
-	// 	}
-	// 	x++;
-	// }
+	ft_over(av);
 	ps.sb = 0;
+	i = 1;
+	while (av[i])
+	{
+		if (ft_isdigit(av[i]) == 0)
+		{
+			write(1, "Error\nis not degit", 18);
+			exit(1);
+		}
+		i++;
+	}
 	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
 	stack_s.stackb[0] = 0;
 	ps.contare = ft_contare(av);
 	sort(av);
-	di.x = 0;
-	while (di.x < ps.contare)
-	{
-		printf("%d\n", stack_s.stacka[di.x]);
-		di.x++;
-	}
+	i = 0;
+	// printf("\n");
+	// while (i < ps.contare)
+	// {
+	// 	printf("%d\n", stack_s.stacka[i]);
+	// 	i++;
+	// }
 }

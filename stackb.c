@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:43 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 01:55:25 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 22:17:49 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,5 @@ void	push_b(void)
 	}
 	stack_s.stacka = nbrs;
 	ps.sb--;
-	printf("pb\n");
+	write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:08:59 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/31 21:01:41 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 15:33:28 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	ft_pa_rra(void)
 
 void	ft_sort_five(void)
 {
+	ft_duplicate();
 	if (ps.contare == 4)
 	{
 		ft_pa_rra();

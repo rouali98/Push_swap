@@ -6,17 +6,24 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 10:51:06 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 22:31:09 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit(int n)
+int	ft_isdigit(char *str)
 {
-	if (n >= '0' && n <= '9')
+	int	x;
+
+	x = 0;
+	while (str[x])
 	{
-		return (1);
+		if (str[x] >= '0' && str[x] <= '9')
+		{
+			return (1);
+		}
+		x++;
 	}
 	return (0);
 }
@@ -38,7 +45,7 @@ long	ft_atoi(char *str)
 			y = y * -1;
 		x++;
 	}
-	while (ft_isdigit((int)str[x]))
+	while (str[x] >= '0' && str[x] <= '9')
 	{
 		result = result * 10 + str[x] - '0';
 		x++;

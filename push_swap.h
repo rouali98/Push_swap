@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 10:51:02 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 22:24:24 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ struct s_direction
 	int	z;
 	int	start;
 	int	end;
+	int	max;
+	int	med;
 } di;
 
 struct s_stack
@@ -60,7 +62,7 @@ void	f_printp(char *str);
 
 /* #################### PUSH SWAP UTILIS #####################*/
 
-int		ft_isdigit(int n);
+int		ft_isdigit(char *str);
 long	ft_atoi(char *str);
 int		ft_strlen(char *str);
 char	*ft_strndup(char *str, int n);
@@ -71,7 +73,7 @@ int		ft_word(char *str, char c);
 void	ft_sort_three(void);
 void	ft_sort_five(void);
 void	ft_sort_hundred(char **av);
-void    ft_sort_fivehundred(char **av);
+void	ft_sort_fivehundred(char **av);
 int		ft_min(void);
 void	ft_pa_rra(void);
 void	ft_confined(int *arr, int save);
@@ -80,10 +82,12 @@ void	ft_larger(int *arr);
 int		*ft_arrange(char **av);
 void	ft_range(int *arr, int save);
 int		ft_max(void);
+void	ft_return_sb(void);
+void	ft_over(char **av);
+void	ft_duplicate(void);
 
 /* ####################### MAIN ########################*/
 
-int		ft_isdigit(int n);
 int		ft_strlen(char *str);
 int		ft_word(char *str, char c);
 char	*ft_strndup(char *str, int n);
