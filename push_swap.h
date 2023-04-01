@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 02:08:31 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 10:51:02 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	f_printp(char *str);
 /* #################### PUSH SWAP UTILIS #####################*/
 
 int		ft_isdigit(int n);
-int		ft_atoi(const char *str);
+long	ft_atoi(char *str);
 int		ft_strlen(char *str);
 char	*ft_strndup(char *str, int n);
 int		ft_word(char *str, char c);

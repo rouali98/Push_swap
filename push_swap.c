@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 02:20:52 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 10:53:30 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	*ft_arg(char **str)
 	x = 1;
 	y = 0;
 	z = 0;
-	arg = malloc(sizeof(int *) * 100);
+	arg = malloc(sizeof(int *) * (ps.contare + 1));
 	if (!arg)
 		exit(1);
 	while (str[x])
@@ -104,6 +104,19 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	stack_s.stacka = ft_arg(av);
+	// printf("|| %d ||\n", stack_s.stacka[0]);
+	// int x = 0;
+	// printf("stack a = %d\n", stack_s.stacka[x]);
+	// while (ps.contare >= x)
+	// {
+	// 	// printf("x = %d\n", x);
+	// 	if ((stack_s.stacka[x] > 2147483647 || stack_s.stacka[x] < -2147483648) && ps.contare)
+	// 	{
+	// 		printf("#ERROR#\n");
+	// 		exit(1);
+	// 	}
+	// 	x++;
+	// }
 	ps.sb = 0;
 	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
 	stack_s.stackb[0] = 0;

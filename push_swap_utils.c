@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rouali <rouali@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/03/19 17:00:37 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/01 10:51:06 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	ft_isdigit(int n)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(char *str)
 {
-	int			x;
-	int			y;
-	long int	result;
+	int		x;
+	int		y;
+	long	result;
 
 	x = 0;
 	y = 1;
