@@ -6,7 +6,7 @@
 #    By: rouali <rouali@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 12:08:31 by rouali            #+#    #+#              #
-#    Updated: 2023/04/01 15:08:47 by rouali           ###   ########.fr        #
+#    Updated: 2023/04/02 22:12:39 by rouali           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC =	push_swap.c \
 		sort_five.c \
 		sort_hundred.c \
 		sort_hundred_utils.c \
-		sort_fivehundred.c 
+		sort_fivehundred.c \
+		hundel_push_swap.c
 
 OBJ = $(SRC:.c=.o)
 

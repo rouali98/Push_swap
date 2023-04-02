@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:08:59 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/02 12:48:52 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/02 16:57:30 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,15 @@ void	ft_pa_rra(void)
 
 	ph = 0;
 	while (ph < ps.contare)
-	{
+	{	
 		min = ft_min();
+		if (stack_s.stacka[ps.contare - 1] == min)
+		{
+			ft_rev_a_shift_down();
+			push_a();
+			ps.contare = ps.contare - 1;
+			break ;
+		}
 		if (stack_s.stacka[0] == min)
 		{
 			push_a();
@@ -48,9 +55,8 @@ void	ft_pa_rra(void)
 	}
 }
 
-void	ft_sort_five(void)
+void	ft_sort_four(void)
 {
-	ft_duplicate();
 	if (ps.contare == 4)
 	{
 		ft_pa_rra();
@@ -58,13 +64,16 @@ void	ft_sort_five(void)
 		push_b();
 		ps.contare = ps.contare + 1;
 	}
+}
+
+void	ft_sort_five(void)
+{
+	ft_duplicate();
+	ft_sort_four();
 	if (ps.contare == 5)
 	{
 		ft_pa_rra();
-		ft_pa_rra();
-		ft_sort_three();
-		push_b();
-		ps.contare = ps.contare + 1;
+		ft_sort_four();
 		push_b();
 		ps.contare = ps.contare + 1;
 	}

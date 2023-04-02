@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/02 00:07:58 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/02 22:30:01 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,28 +97,35 @@ void	sort(char **av)
 		ft_sort_fivehundred(av);
 }
 
-int	main(int ac, char **av)
+void space_valid(char **av)
 {
-	int	i;
+	int	c;
 
-	if (ac <= 0)
+	c = 0;
+	while (av[c])
 	{
-		write(1, "Error\n", 7);
-		return (0);
-	}
-	stack_s.stacka = ft_arg(av);
-	ft_over(av);
-	ps.sb = 0;
-	i = 1;
-	while (av[i])
-	{
-		if (ft_isdigit(av[i]) == 0)
+		if ((av[c][0] == ' ' && av[c][1] == '\0')|| av[c][0] == '\0')
 		{
-			write(1, "Error\nis not degit", 18);
+			write(1, "Error\n", 6);
 			exit(1);
 		}
-		i++;
+		c++;
 	}
+}
+
+int	main(int ac, char **av)
+{
+	space_valid(av);
+	if (ac <= 0)
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	ft_over(av);
+	ft_check_is_not_nbr(av);
+	ft_is_sorted(av);
+	stack_s.stacka = ft_arg(av);
+	ps.sb = 0;
 	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
 	stack_s.stackb[0] = 0;
 	ps.contare = ft_contare(av);

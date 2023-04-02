@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/02 00:07:25 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/02 22:19:37 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int		ft_max(void);
 void	ft_return_sb(void);
 void	ft_over(char **av);
 void	ft_duplicate(void);
+void	ft_is_sorted(char **av);
+char	**args_with_no_space(char **str);
 
 /* ####################### MAIN ########################*/
 
@@ -94,6 +96,8 @@ char	*ft_strndup(char *str, int n);
 char	**ft_split(char *str, char c);
 int		*ft_arg(char **str);
 int		ft_contare(char **av);
+void	space_valid(char **av);
 void	sort(char **av);
+void	ft_check_is_not_nbr(char **av);
 
 #endif

@@ -6,11 +6,28 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 01:58:20 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 22:13:39 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/02 22:35:19 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_is_sorted(char **av)
+{
+	int	x;
+	int	y;
+
+	x = 1;
+	y = 0;
+	while (av[x])
+	{
+		if (av[x + 1] && (ft_atoi(av[x]) > ft_atoi(av[x + 1])))
+			y++;
+		x++;
+	}
+	if (y == 0)
+		exit (0);
+}
 
 void	ft_duplicate(void)
 {
@@ -25,7 +42,7 @@ void	ft_duplicate(void)
 		{
 			if (stack_s.stacka[i] == stack_s.stacka[j])
 			{
-				write(1, "Error\nDuplicate number", 22);
+				write(1, "Error\n", 6);
 				exit(1);
 			}
 			j++;
@@ -41,10 +58,70 @@ void	ft_over(char **av)
 	{
 		if ((ft_atoi(av[di.x]) > 2147483647 || ft_atoi(av[di.x]) < -2147483648))
 		{
-			write(1, "Error\n", 7);
+			write(1, "Error\n", 6);
 			exit(1);
 		}
 		di.x++;
+	}
+}
+
+char	**args_with_no_space(char **str)
+{
+	int		x;
+	int		y;
+	int		z;
+	char	**arg;
+
+	x = 1;
+	y = 0;
+	z = 0;
+	arg = malloc(sizeof(int *) * (ps.contare + 1));
+	if (!arg)
+		exit(1);
+	while (str[x])
+	{
+		while (ft_split(str[x], ' ')[y])
+		{
+			arg[z++] = ft_split(str[x], ' ')[y++];
+		}
+		y = 0;
+		x++;
+	}
+	return (arg);
+}
+
+void	ft_check_is_not_nbr(char **av)
+{
+	int x;
+	int y;
+	
+	char **arg = args_with_no_space(av);
+	x = 1;
+	while (arg[x])
+	{
+		y = 0;
+		while (arg[x][y])
+		{printf("hhhh");
+			if ((arg[x][y] >= '0' && arg[x][y] <= '9') || (arg[x][y] == '-') || (arg[x][y] == '+'))
+			{
+				if (arg[x][y] == '-' || arg[x][y] == '+')
+				{
+					
+					if (y != 0)
+					{
+						write(1, "Error\n", 6);
+						exit(1);
+					}
+				}
+				y++;
+			}
+			else
+			{
+				write(1, "Errorr\n", 6);
+				exit(1);
+			}
+		}
+		x++;
 	}
 }
 
@@ -57,7 +134,7 @@ void	ft_sort_fivehundred(char **av)
 	arr = ft_arrange(av);
 	save = ps.contare - 1;
 	di.start = 0;
-	di.end = 25;
+	di.end = 35;
 	if (di.end > save)
 		di.end = save;
 	while (ps.contare)

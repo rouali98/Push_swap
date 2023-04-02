@@ -6,16 +6,11 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/02 12:58:49 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/02 16:31:13 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	f_print(char *str)
-{
-	printf("%s\n", str);
-}
 
 /* SA */
 
@@ -26,7 +21,7 @@ void	ft_swap_a_first(void)
 	swap = stack_s.stacka[0];
 	stack_s.stacka[0] = stack_s.stacka[1];
 	stack_s.stacka[1] = swap;
-	printf("sa\n");
+	write(1, "sa\n", 3);
 }
 
 /* RA */
@@ -45,7 +40,7 @@ void	ft_rev_a_shift_up(void)
 			stack_s.stacka[di.x] = stack_s.stacka[di.x + 1];
 		di.x++;
 	}
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 /* RRA */
@@ -69,7 +64,7 @@ void	ft_rev_a_shift_down(void)
 		ps.fill--;
 	}
 	stack_s.stacka = stack_s.stacka;
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 /* PA */
@@ -91,5 +86,5 @@ void	push_a(void)
 	}
 	ps.sb++;
 	stack_s.stackb = nbrs;
-	printf("pb\n");
+	write(1, "pb\n", 3);
 }
