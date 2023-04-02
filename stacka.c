@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 22:17:17 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/02 12:58:49 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_swap_a_first(void)
 	swap = stack_s.stacka[0];
 	stack_s.stacka[0] = stack_s.stacka[1];
 	stack_s.stacka[1] = swap;
+	printf("sa\n");
 }
 
 /* RA */
@@ -44,6 +45,7 @@ void	ft_rev_a_shift_up(void)
 			stack_s.stacka[di.x] = stack_s.stacka[di.x + 1];
 		di.x++;
 	}
+	printf("ra\n");
 }
 
 /* RRA */
@@ -67,6 +69,7 @@ void	ft_rev_a_shift_down(void)
 		ps.fill--;
 	}
 	stack_s.stacka = stack_s.stacka;
+	printf("rra\n");
 }
 
 /* PA */
@@ -88,5 +91,5 @@ void	push_a(void)
 	}
 	ps.sb++;
 	stack_s.stackb = nbrs;
-	write(1, "pa\n", 3);
+	printf("pb\n");
 }

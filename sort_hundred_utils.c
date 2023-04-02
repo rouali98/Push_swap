@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:07:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 15:10:19 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/02 00:03:16 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	ft_return_sb(void)
 		while (x-- >= di.max)
 		{
 			ft_rev_b_shift_down();
-			f_print("rrb");
 		}
 	}
 	else
@@ -71,7 +70,6 @@ void	ft_return_sb(void)
 		while (x++ < di.max)
 		{
 			ft_rev_b_shift_up();
-			f_print("rb");
 		}
 	}
 	ps.contare++;

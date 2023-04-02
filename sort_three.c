@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:19:15 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 15:32:41 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/02 00:05:59 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,11 @@ void	ft_rra_sa(void)
 		if (stack_s.stacka[2] < stack_s.stacka[0])
 		{
 			ft_rev_a_shift_down();
-			f_print("rra");
 		}
 		else if (stack_s.stacka[0] < stack_s.stacka[2])
 		{
 			ft_rev_a_shift_down();
-			f_print("rra");
 			ft_swap_a_first();
-			f_print("sa");
 		}
 	}
 }
@@ -40,14 +37,11 @@ void	ft_ra_sa(void)
 		if (stack_s.stacka[1] < stack_s.stacka[2])
 		{
 			ft_rev_a_shift_up();
-			f_print("ra");
 		}
 		if (stack_s.stacka[2] < stack_s.stacka[1])
 		{
 			ft_rev_a_shift_up();
-			f_print("ra");
 			ft_swap_a_first();
-			f_print("sa");
 		}
 	}
 }
@@ -60,7 +54,6 @@ void	ft_sort_three(void)
 		if (stack_s.stacka[1] < stack_s.stacka[0])
 		{
 			ft_swap_a_first();
-			f_print("sa");
 		}
 		return ;
 	}
@@ -72,7 +65,6 @@ void	ft_sort_three(void)
 		if (stack_s.stacka[0] < stack_s.stacka[2])
 		{
 			ft_swap_a_first();
-			f_print("sa");
 		}
 	}
 }

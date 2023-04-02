@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:31 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 20:05:18 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/02 00:07:17 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	ft_smaller(int *arr, int save)
 	{
 		push_a();
 		ft_rev_b_shift_up();
-		f_print("rb");
 		ps.contare--;
 		if (di.end < save)
 		{
@@ -71,7 +70,6 @@ void	ft_larger(int *arr)
 	if (stack_s.stacka[0] > arr[di.end])
 	{
 		ft_rev_a_shift_up();
-		f_print("ra");
 	}
 }
 
