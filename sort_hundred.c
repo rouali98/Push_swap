@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:31 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/02 16:11:32 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/03 17:19:00 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	ft_sort_hundred(char **av)
 	int	*arr;
 	int	save;
 
-	ft_duplicate();
 	arr = ft_arrange(av);
 	save = ps.contare - 1;
 	di.start = 0;

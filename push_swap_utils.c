@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/01 22:31:09 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/04 23:21:30 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	ft_isdigit(char *str)
 	return (0);
 }
 
+
 long	ft_atoi(char *str)
 {
 	int		x;
@@ -37,6 +38,8 @@ long	ft_atoi(char *str)
 	x = 0;
 	y = 1;
 	result = 0;
+	if ((str[0] == '-' && str[1] == '\0') || (str[0] == '+' && str[1] == '\0'))
+		ft_write_error();
 	while (str[x] == 32 || (str[x] >= 9 && str[x] <= 13))
 		x++;
 	if (str[x] == '-' || str[x] == '+')

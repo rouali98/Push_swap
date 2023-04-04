@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/02 22:30:01 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/04 23:17:29 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,19 @@ int	*ft_arg(char **str)
 	int		y;
 	int		z;
 	int		*arg;
+	char	**temp;
 
 	x = 1;
 	y = 0;
 	z = 0;
-	arg = malloc(sizeof(int *) * (ps.contare + 1));
+	arg = malloc(sizeof(int) * (ps.contare + 1));
 	if (!arg)
 		exit(1);
 	while (str[x])
 	{
-		while (ft_split(str[x], ' ')[y])
-			arg[z++] = ft_atoi(ft_split(str[x], ' ')[y++]);
+		temp = ft_split(str[x], ' ');
+		while (temp[y])
+			arg[z++] = ft_atoi(temp[y++]);
 		y = 0;
 		x++;
 	}
@@ -97,37 +99,53 @@ void	sort(char **av)
 		ft_sort_fivehundred(av);
 }
 
-void space_valid(char **av)
+void	space_valid(char **av)
 {
 	int	c;
+	int	k;
+	int	b;
 
-	c = 0;
-	while (av[c])
+	k = 0;
+	c = -1;
+	while (av[++c])
 	{
-		if ((av[c][0] == ' ' && av[c][1] == '\0')|| av[c][0] == '\0')
+		if ((av[c][0] == ' ') || av[c][0] == '\0')
 		{
-			write(1, "Error\n", 6);
-			exit(1);
+			if (av[c][0] == ' ')
+			{
+				b = -1;
+				while (av[c][++b])
+					if (av[c][b] >= '0' && av[c][b] <= '9')
+						k++;
+				if (k > 0)
+					return ;
+				else
+					ft_write_error();
+			}
+			else
+				ft_write_error();
 		}
-		c++;
 	}
 }
 
 int	main(int ac, char **av)
 {
-	space_valid(av);
 	if (ac <= 0)
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	ft_over(av);
 	ft_check_is_not_nbr(av);
-	ft_is_sorted(av);
 	stack_s.stacka = ft_arg(av);
-	ps.sb = 0;
 	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
+	ps.sb = 0;
 	stack_s.stackb[0] = 0;
 	ps.contare = ft_contare(av);
+	space_valid(av);
+	ft_over(av);
+	ft_is_sorted(av);
+	ft_duplicate();
 	sort(av);
+	// while (1)
+	// 	sleep(1);
 }

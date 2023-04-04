@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:08:59 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/02 16:57:30 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/03 17:19:15 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	ft_sort_four(void)
 
 void	ft_sort_five(void)
 {
-	ft_duplicate();
 	ft_sort_four();
 	if (ps.contare == 5)
 	{

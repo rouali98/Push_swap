@@ -6,11 +6,17 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/02 16:31:13 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/03 16:34:24 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_write_error(void)
+{
+	write(1, "Error\n", 6);
+	exit(1);
+}
 
 /* SA */
 

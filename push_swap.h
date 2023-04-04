@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/02 22:19:37 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/04 16:14:09 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	ft_over(char **av);
 void	ft_duplicate(void);
 void	ft_is_sorted(char **av);
 char	**args_with_no_space(char **str);
+void	ft_write_error(void);
+void	ft_is_not_digit(char **str);
 
 /* ####################### MAIN ########################*/
 
