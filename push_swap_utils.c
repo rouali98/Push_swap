@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/04 23:21:30 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/05 21:00:33 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	ft_isdigit(char *str)
 	}
 	return (0);
 }
-
 
 long	ft_atoi(char *str)
 {

@@ -6,18 +6,17 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 01:58:20 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/04 23:21:15 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/05 22:15:04 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_is_sorted(char **av)
+void	ft_is_sorted(void)
 {
 	int	x;
 	int	y;
 
-	(void)av;
 	x = 0;
 	y = 0;
 	while (x < ps.contare)
@@ -71,11 +70,11 @@ void	ft_check_is_not_nbr(char **av)
 		y = 0;
 		while (av[x][y])
 		{
-			if ((av[x][y] >= '0' && av[x][y] <= '9') || \
-			(av[x][y] == '-' || av[x][y] == '+') || av[x][y] == ' ')
+			if ((av[x][y] >= '0' && av[x][y] <= '9') \
+			|| (av[x][y] == '-' || av[x][y] == '+') || av[x][y] == ' ')
 			{
 				if ((av[x][y] == '-' || av[x][y] == '+') \
-				&& (av[x][y - 1] != ' '))
+				&& (av[x][y - 1] != ' ') && y != 0)
 					ft_write_error();
 				y++;
 			}

@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/04 23:17:29 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/05 22:17:22 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,23 @@ char	**ft_split(char *str, char c)
 	return (arg);
 }
 
+void free_db_ptr(char**ptr)
+{
+	int	i;
+
+	i = -1;
+	while (ptr[++i])
+		free(ptr[i]);
+	free(ptr);
+}
+
 int	*ft_arg(char **str)
 {
 	int		x;
 	int		y;
 	int		z;
 	int		*arg;
-	char	**temp;
+	char	**split;
 
 	x = 1;
 	y = 0;
@@ -58,29 +68,36 @@ int	*ft_arg(char **str)
 		exit(1);
 	while (str[x])
 	{
-		temp = ft_split(str[x], ' ');
-		while (temp[y])
-			arg[z++] = ft_atoi(temp[y++]);
 		y = 0;
+		split = ft_split(str[x], ' ');
+		while (split[y])
+		{
+			arg[z++] = ft_atoi(split[y++]);
+			// free(split);
+		}
 		x++;
 	}
+	// while (1);
 	return (arg);
 }
 
 int	ft_contare(char **av)
 {
-	int	x;
-	int	y;
-	int	c;
+	int		x;
+	int		y;
+	int		c;
+	char	**split;
 
 	x = 1;
 	c = 0;
 	while (av[x])
 	{
 		y = 0;
-		while (ft_split(av[x], ' ')[y++])
+		split = ft_split(av[x], ' ');
+		while (split[y++])
 			c++;
 		x++;
+		// free_db_ptr(split);
 	}
 	return (c);
 }
@@ -143,9 +160,8 @@ int	main(int ac, char **av)
 	ps.contare = ft_contare(av);
 	space_valid(av);
 	ft_over(av);
-	ft_is_sorted(av);
 	ft_duplicate();
+	ft_is_sorted();
 	sort(av);
-	// while (1)
-	// 	sleep(1);
+	return (0);
 }
