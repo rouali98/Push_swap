@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/06 00:38:59 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/06 15:49:18 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,16 @@ int	ft_contare(char **av)
 	return (c);
 }
 
+void	ft_free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (i < ps.contare)
+		free(split[i++]);
+	free(split);
+}
+
 int	*ft_arg(char **str)
 {
 	int		x;
@@ -82,21 +92,31 @@ int	*ft_arg(char **str)
 	char	**split;
 
 	x = 1;
-	y = 0;
 	z = 0;
-	arg = malloc(sizeof(int) * (ps.contare + 1));
+	while (str[x])
+	{
+		y = 0;
+		split = ft_split(str[x], ' ');
+		while (split[y++])
+			z++;
+		ft_free_split(split);
+		x++;
+	}
+	arg = malloc(sizeof(int) * z);
 	if (!arg)
 		exit(1);
+	x = 1;
+	z = 0;
 	while (str[x])
 	{
 		y = 0;
 		split = ft_split(str[x], ' ');
 		while (split[y])
-		{
 			arg[z++] = ft_atoi(split[y++]);
-		}
+		ft_free_split(split);
 		x++;
 	}
+	// while (1);
 	return (arg);
 }
 
