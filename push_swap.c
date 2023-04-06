@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/05 22:17:22 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/06 00:38:59 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,27 @@ void free_db_ptr(char**ptr)
 	free(ptr);
 }
 
+int	ft_contare(char **av)
+{
+	int		x;
+	int		y;
+	int		c;
+	char	**split;
+
+	x = 1;
+	c = 0;
+	while (av[x])
+	{
+		y = 0;
+		split = ft_split(av[x], ' ');
+		while (split[y++])
+			c++;
+		x++;
+		free_db_ptr(split);
+	}
+	return (c);
+}
+
 int	*ft_arg(char **str)
 {
 	int		x;
@@ -73,34 +94,12 @@ int	*ft_arg(char **str)
 		while (split[y])
 		{
 			arg[z++] = ft_atoi(split[y++]);
-			// free(split);
 		}
 		x++;
 	}
-	// while (1);
 	return (arg);
 }
 
-int	ft_contare(char **av)
-{
-	int		x;
-	int		y;
-	int		c;
-	char	**split;
-
-	x = 1;
-	c = 0;
-	while (av[x])
-	{
-		y = 0;
-		split = ft_split(av[x], ' ');
-		while (split[y++])
-			c++;
-		x++;
-		// free_db_ptr(split);
-	}
-	return (c);
-}
 
 void	sort(char **av)
 {
@@ -110,6 +109,7 @@ void	sort(char **av)
 		ft_sort_three();
 	if (ps.contare > 3 && ps.contare <= 5)
 		ft_sort_five();
+	// while (1);
 	if (ps.contare > 5 && ps.contare <= 100)
 		ft_sort_hundred(av);
 	if (ps.contare > 100)
@@ -153,7 +153,10 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	ft_check_is_not_nbr(av);
-	stack_s.stacka = ft_arg(av);
+	int *arg = ft_arg(av);
+	stack_s.stacka = arg;
+	// leaks here 8
+	// while(1);
 	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
 	ps.sb = 0;
 	stack_s.stackb[0] = 0;
@@ -163,5 +166,7 @@ int	main(int ac, char **av)
 	ft_duplicate();
 	ft_is_sorted();
 	sort(av);
+	// while(1);
+	// leaks here 2 //18
 	return (0);
 }
