@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/07 22:14:21 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/07 23:28:30 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	push_a(void)
 
 	di.x = 1;
 	nbrs = malloc((ps.sb + 1) * sizeof(int));
+	if (!nbrs)
+		return ;
 	nbrs[0] = stack_s.stacka[0];
 	di.y = 0;
 	stack_s.stacka = &stack_s.stacka[1];

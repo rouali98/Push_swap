@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/07 22:55:07 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/07 23:46:34 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,11 @@ int	*ft_arg(char **str)
 	int		z;
 	int		*arg;
 	char	**split;
+	char	*var;
 
 	arg = (int *)malloc(sizeof(int) * (ft_contare(str) + 1));
 	if (!arg)
-		exit(1);
+		return (0);
 	x = 1;
 	z = 0;
 	while (str[x])
@@ -91,7 +92,8 @@ int	*ft_arg(char **str)
 		split = ft_split(str[x], ' ');
 		while (split[y])
 		{
-			arg[z++] = ft_atoi(split[y]);
+			var = split[y];
+			arg[z++] = ft_atoi(var);
 			free(split[y]);
 			y++;
 		}
@@ -158,7 +160,7 @@ int	main(int ac, char **av)
 	stack_s.stacka = arg;
 	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
 	if (!stack_s.stackb)
-		exit(1);
+		return (0);
 	ps.sb = 0;
 	stack_s.stackb[0] = 0;
 	ps.contare = ft_contare(av);
@@ -168,6 +170,11 @@ int	main(int ac, char **av)
 	ft_is_sorted();
 	free(stack_s.stackb);
 	sort(av);
+	// int b = 0;
+	// while (b < ps.contare) {
+	// 	printf("%d\n", stack_s.stacka[b]);
+	// 	b++;
+	// }
 	// while(1);
 	return (0);
 }

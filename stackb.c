@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:43 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/07 22:14:25 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/07 23:28:47 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	push_b(void)
 	int	*nbrs;
 
 	nbrs = malloc((ps.contare + 1) * sizeof(int));
+	if (!nbrs)
+		return ;
 	nbrs[0] = stack_s.stackb[0];
 	di.x = 1;
 	di.y = 0;
