@@ -6,12 +6,21 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/07 15:44:49 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/07 22:55:07 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <ctype.h>
+
+void	ft_free_split(char**split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+		free(split[i++]);
+	free(split);
+}
 
 char	**ft_split(char *str, char c)
 {
@@ -42,16 +51,6 @@ char	**ft_split(char *str, char c)
 	return (arg);
 }
 
-void ft_free_split(char**split)
-{
-	int	i;
-
-	i = -1;
-	while (split[++i])
-		free(split[i]);
-	free(split);
-}
-
 int	ft_contare(char **av)
 {
 	int		x;
@@ -67,8 +66,8 @@ int	ft_contare(char **av)
 		split = ft_split(av[x], ' ');
 		while (split[y++])
 			c++;
-		ft_free_split(split);
 		x++;
+		ft_free_split(split);
 	}
 	return (c);
 }
@@ -81,7 +80,7 @@ int	*ft_arg(char **str)
 	int		*arg;
 	char	**split;
 
-	arg = malloc(sizeof(int) * (ft_contare(str) - 1));
+	arg = (int *)malloc(sizeof(int) * (ft_contare(str) + 1));
 	if (!arg)
 		exit(1);
 	x = 1;
@@ -91,7 +90,12 @@ int	*ft_arg(char **str)
 		y = 0;
 		split = ft_split(str[x], ' ');
 		while (split[y])
-			arg[z++] = ft_atoi(split[y++]);
+		{
+			arg[z++] = ft_atoi(split[y]);
+			free(split[y]);
+			y++;
+		}
+		free(split);
 		x++;
 	}
 	return (arg);
@@ -142,13 +146,16 @@ void	space_valid(char **av)
 
 int	main(int ac, char **av)
 {
+	int	*arg;
+
+	arg = ft_arg(av);
 	if (ac <= 0)
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
 	ft_check_is_not_nbr(av);
-	stack_s.stacka = ft_arg(av);
+	stack_s.stacka = arg;
 	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
 	if (!stack_s.stackb)
 		exit(1);
@@ -159,6 +166,8 @@ int	main(int ac, char **av)
 	ft_over(av);
 	ft_duplicate();
 	ft_is_sorted();
+	free(stack_s.stackb);
 	sort(av);
+	// while(1);
 	return (0);
 }

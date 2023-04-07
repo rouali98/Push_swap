@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/05 21:46:35 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/07 20:50:05 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ char	**args_with_no_space(char **str);
 void	ft_write_error(void);
 void	ft_is_not_digit(char **str);
 void	free_db_ptr(char**ptr);
+void	ft_free_split(char**split);
 
 /* ####################### MAIN ########################*/
 
