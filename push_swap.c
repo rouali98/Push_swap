@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/06 15:49:18 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/07 15:44:49 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ char	**ft_split(char *str, char c)
 	return (arg);
 }
 
-void free_db_ptr(char**ptr)
+void ft_free_split(char**split)
 {
 	int	i;
 
 	i = -1;
-	while (ptr[++i])
-		free(ptr[i]);
-	free(ptr);
+	while (split[++i])
+		free(split[i]);
+	free(split);
 }
 
 int	ft_contare(char **av)
@@ -67,20 +67,10 @@ int	ft_contare(char **av)
 		split = ft_split(av[x], ' ');
 		while (split[y++])
 			c++;
+		ft_free_split(split);
 		x++;
-		free_db_ptr(split);
 	}
 	return (c);
-}
-
-void	ft_free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (i < ps.contare)
-		free(split[i++]);
-	free(split);
 }
 
 int	*ft_arg(char **str)
@@ -91,18 +81,7 @@ int	*ft_arg(char **str)
 	int		*arg;
 	char	**split;
 
-	x = 1;
-	z = 0;
-	while (str[x])
-	{
-		y = 0;
-		split = ft_split(str[x], ' ');
-		while (split[y++])
-			z++;
-		ft_free_split(split);
-		x++;
-	}
-	arg = malloc(sizeof(int) * z);
+	arg = malloc(sizeof(int) * (ft_contare(str) - 1));
 	if (!arg)
 		exit(1);
 	x = 1;
@@ -113,13 +92,10 @@ int	*ft_arg(char **str)
 		split = ft_split(str[x], ' ');
 		while (split[y])
 			arg[z++] = ft_atoi(split[y++]);
-		ft_free_split(split);
 		x++;
 	}
-	// while (1);
 	return (arg);
 }
-
 
 void	sort(char **av)
 {
@@ -129,7 +105,6 @@ void	sort(char **av)
 		ft_sort_three();
 	if (ps.contare > 3 && ps.contare <= 5)
 		ft_sort_five();
-	// while (1);
 	if (ps.contare > 5 && ps.contare <= 100)
 		ft_sort_hundred(av);
 	if (ps.contare > 100)
@@ -173,11 +148,10 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	ft_check_is_not_nbr(av);
-	int *arg = ft_arg(av);
-	stack_s.stacka = arg;
-	// leaks here 8
-	// while(1);
+	stack_s.stacka = ft_arg(av);
 	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
+	if (!stack_s.stackb)
+		exit(1);
 	ps.sb = 0;
 	stack_s.stackb[0] = 0;
 	ps.contare = ft_contare(av);
@@ -186,7 +160,5 @@ int	main(int ac, char **av)
 	ft_duplicate();
 	ft_is_sorted();
 	sort(av);
-	// while(1);
-	// leaks here 2 //18
 	return (0);
 }

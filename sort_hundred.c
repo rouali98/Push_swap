@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:31 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/06 00:53:43 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/07 15:28:23 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_confined(int *arr, int save)
 {
 	if ((stack_s.stacka[0] >= arr[di.start] \
 	&& stack_s.stacka[0] <= arr[di.end]) && ps.contare)
-	{	
+	{
 		push_a();
 		if (di.end < save)
 		{
