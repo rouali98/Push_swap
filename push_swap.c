@@ -6,21 +6,11 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 18:58:51 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 22:31:23 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void	ft_free_split(char**split)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (split[i])
-// 		free(split[i++]);
-// 	free(split);
-// }
 
 char	**ft_split(char *str, char c)
 {
@@ -28,15 +18,12 @@ char	**ft_split(char *str, char c)
 	int		y;
 	int		save;
 	char	*arg[sizeof(char *) * (ft_word(str, c) + 1)];
-	char **ps;
+	char	**ps;
 
 	x = 0;
 	y = 0;
 	if (!str)
 		return (0);
-	// arg = malloc(sizeof(char *) * (ft_word(str, c) + 1));
-	// if (!arg)
-	// 	return (0);
 	while (x < ft_word(str, c) && str[y])
 	{
 		while (str[y] == c)
@@ -69,7 +56,6 @@ int	ft_contare(char **av)
 		while (split[y++])
 			c++;
 		x++;
-		// ft_free_split(split);
 	}
 	return (c);
 }
@@ -92,10 +78,8 @@ int	*ft_arg(char **str)
 		while (ft_split(str[x], ' ')[y])
 		{
 			arg[z++] = ft_atoi(ft_split(str[x], ' ')[y]);
-			// free(split[y]);
 			y++;
 		}
-		// free(split);
 		x++;
 	}
 	return (arg);
@@ -113,35 +97,6 @@ void	sort(char **av)
 		ft_sort_hundred(av);
 	if (ps.contare > 100)
 		ft_sort_fivehundred(av);
-}
-
-void	space_valid(char **av)
-{
-	int	c;
-	int	k;
-	int	b;
-
-	k = 0;
-	c = -1;
-	while (av[++c])
-	{
-		if ((av[c][0] == ' ') || av[c][0] == '\0')
-		{
-			if (av[c][0] == ' ')
-			{
-				b = -1;
-				while (av[c][++b])
-					if (av[c][b] >= '0' && av[c][b] <= '9')
-						k++;
-				if (k > 0)
-					return ;
-				else
-					ft_write_error();
-			}
-			else
-				ft_write_error();
-		}
-	}
 }
 
 int	main(int ac, char **av)
@@ -163,15 +118,12 @@ int	main(int ac, char **av)
 	stack_s.stackb[0] = 0;
 	ps.contare = ft_contare(av);
 	space_valid(av);
-	ft_over(av);
+	ft_int_max_min(av);
 	ft_duplicate();
 	ft_is_sorted();
 	sort(av);
-	// while(1);
-	// int b = 0;
-	// while (b < ps.contare) {
-	// 	printf("%d\n", stack_s.stacka[b]);
-	// 	b++; 
-	// }
+	free(stack_s.stackb);
+	free(arg);
+	while (1);
 	return (0);
 }

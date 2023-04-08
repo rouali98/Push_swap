@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:07:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 18:47:57 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 21:35:39 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_mx(void)
 	return (di.max);
 }
 
-int	ft_max(void)
+int	ft_max_nbr(void)
 {
 	int	x;
 
@@ -54,7 +54,7 @@ void	ft_return_sb(void)
 {
 	int	x;
 
-	di.max = ft_max();
+	di.max = ft_max_nbr();
 	di.med = ps.sb / 2;
 	if (di.max > di.med)
 	{

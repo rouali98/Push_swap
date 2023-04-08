@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 17:43:51 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 22:32:47 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,6 @@ char	*ft_strndup(char *str, int n)
 	char *ps;
 
 	x = 0;
-	// dest = malloc(sizeof(char) * (n + 1));
-	// if (!dest)
-	// 	return (0);
 	while (x < n)
 	{
 		dest[x] = str[x];

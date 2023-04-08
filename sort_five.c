@@ -6,13 +6,13 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:08:59 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 18:05:34 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 21:34:36 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_min(void)
+int	ft_min_nbr(void)
 {
 	int	min;
 
@@ -35,7 +35,7 @@ void	ft_pa_rra(void)
 	ph = 0;
 	while (ph < ps.contare)
 	{	
-		min = ft_min();
+		min = ft_min_nbr();
 		if (stack_s.stacka[ps.contare - 1] == min)
 		{
 			ft_rev_a_shift_down();

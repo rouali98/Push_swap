@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:31 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 18:58:11 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 21:32:50 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_confined(int *arr, int save)
 		}
 		ps.contare--;
 	}
-
 }
 
 void	ft_smaller(int *arr, int save)

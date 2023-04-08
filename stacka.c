@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 18:55:57 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 22:17:41 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,22 @@ void	ft_rev_a_shift_down(void)
 /* PA */
 void	push_a(void)
 {
-	int nbr;
+	int	nbr;
+
 	nbr = stack_s.stacka[0];
-	di.y = ps.sb;
-	while (di.y > 0)
+	di.x = ps.sb;
+	while (di.x > 0)
 	{
-		stack_s.stackb[di.y] = stack_s.stackb[di.y - 1];
-		di.y--;
+		stack_s.stackb[di.x] = stack_s.stackb[di.x - 1];
+		di.x--;
 	}
 	ps.sb++;
 	stack_s.stackb[0] = nbr;
-	int c = 0;
-	while (c < ps.contare)
+	di.x = 0;
+	while (di.x < ps.contare)
 	{
-		stack_s.stacka[c] = stack_s.stacka[c + 1];
-		c++;
+		stack_s.stacka[di.x] = stack_s.stacka[di.x + 1];
+		di.x++;
 	}
 	write(1, "pb\n", 3);
 }
