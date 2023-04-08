@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/05 21:00:33 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 17:43:51 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,21 @@ int	ft_strlen(char *str)
 char	*ft_strndup(char *str, int n)
 {
 	int		x;
-	char	*dest;
+	char	dest[sizeof(char) * (n + 1)];
+	char *ps;
 
 	x = 0;
-	dest = malloc(sizeof(char) * (n + 1));
-	if (!dest)
-		return (0);
+	// dest = malloc(sizeof(char) * (n + 1));
+	// if (!dest)
+	// 	return (0);
 	while (x < n)
 	{
 		dest[x] = str[x];
 		x++;
 	}
 	dest[x] = '\0';
-	return (dest);
+	ps = &dest[0];
+	return (ps);
 }
 
 int	ft_word(char *s, char c)

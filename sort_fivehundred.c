@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 01:58:20 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/07 23:25:28 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 18:58:35 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,5 @@ void	ft_sort_fivehundred(char **av)
 	{
 		ft_return_sb();
 	}
+	free(arr);
 }

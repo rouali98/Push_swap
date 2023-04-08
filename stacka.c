@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/07 23:28:30 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 18:55:57 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,23 @@ void	ft_rev_a_shift_down(void)
 }
 
 /* PA */
-
 void	push_a(void)
 {
-	int	*nbrs;
-
-	di.x = 1;
-	nbrs = malloc((ps.sb + 1) * sizeof(int));
-	if (!nbrs)
-		return ;
-	nbrs[0] = stack_s.stacka[0];
-	di.y = 0;
-	stack_s.stacka = &stack_s.stacka[1];
-	while (di.y < ps.sb)
+	int nbr;
+	nbr = stack_s.stacka[0];
+	di.y = ps.sb;
+	while (di.y > 0)
 	{
-		nbrs[di.x] = stack_s.stackb[di.y];
-		di.x++;
-		di.y++;
+		stack_s.stackb[di.y] = stack_s.stackb[di.y - 1];
+		di.y--;
 	}
 	ps.sb++;
-	stack_s.stackb = nbrs;
+	stack_s.stackb[0] = nbr;
+	int c = 0;
+	while (c < ps.contare)
+	{
+		stack_s.stacka[c] = stack_s.stacka[c + 1];
+		c++;
+	}
 	write(1, "pb\n", 3);
 }

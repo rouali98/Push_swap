@@ -6,36 +6,37 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/07 23:46:34 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/08 18:58:51 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_split(char**split)
-{
-	int	i;
+// void	ft_free_split(char**split)
+// {
+// 	int	i;
 
-	i = 0;
-	while (split[i])
-		free(split[i++]);
-	free(split);
-}
+// 	i = 0;
+// 	while (split[i])
+// 		free(split[i++]);
+// 	free(split);
+// }
 
 char	**ft_split(char *str, char c)
 {
 	int		x;
 	int		y;
 	int		save;
-	char	**arg;
+	char	*arg[sizeof(char *) * (ft_word(str, c) + 1)];
+	char **ps;
 
 	x = 0;
 	y = 0;
 	if (!str)
 		return (0);
-	arg = malloc(sizeof(char *) * (ft_word(str, c) + 1));
-	if (!arg)
-		return (0);
+	// arg = malloc(sizeof(char *) * (ft_word(str, c) + 1));
+	// if (!arg)
+	// 	return (0);
 	while (x < ft_word(str, c) && str[y])
 	{
 		while (str[y] == c)
@@ -48,7 +49,8 @@ char	**ft_split(char *str, char c)
 			return (NULL);
 	}
 	arg[x] = 0;
-	return (arg);
+	ps = &arg[0];
+	return (ps);
 }
 
 int	ft_contare(char **av)
@@ -67,7 +69,7 @@ int	ft_contare(char **av)
 		while (split[y++])
 			c++;
 		x++;
-		ft_free_split(split);
+		// ft_free_split(split);
 	}
 	return (c);
 }
@@ -78,10 +80,8 @@ int	*ft_arg(char **str)
 	int		y;
 	int		z;
 	int		*arg;
-	char	**split;
-	char	*var;
 
-	arg = (int *)malloc(sizeof(int) * (ft_contare(str) + 1));
+	arg = malloc(sizeof(int *) * (ft_contare(str) + 1));
 	if (!arg)
 		return (0);
 	x = 1;
@@ -89,15 +89,13 @@ int	*ft_arg(char **str)
 	while (str[x])
 	{
 		y = 0;
-		split = ft_split(str[x], ' ');
-		while (split[y])
+		while (ft_split(str[x], ' ')[y])
 		{
-			var = split[y];
-			arg[z++] = ft_atoi(var);
-			free(split[y]);
+			arg[z++] = ft_atoi(ft_split(str[x], ' ')[y]);
+			// free(split[y]);
 			y++;
 		}
-		free(split);
+		// free(split);
 		x++;
 	}
 	return (arg);
@@ -168,13 +166,12 @@ int	main(int ac, char **av)
 	ft_over(av);
 	ft_duplicate();
 	ft_is_sorted();
-	free(stack_s.stackb);
 	sort(av);
+	// while(1);
 	// int b = 0;
 	// while (b < ps.contare) {
 	// 	printf("%d\n", stack_s.stacka[b]);
-	// 	b++;
+	// 	b++; 
 	// }
-	// while(1);
 	return (0);
 }
