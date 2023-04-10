@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 22:25:14 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/09 15:28:29 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ void	ft_confined(int *arr, int save);
 void	ft_smaller(int *arr, int save);
 void	ft_larger(int *arr);
 
+int		ft_strlen(char *str);
 #endif

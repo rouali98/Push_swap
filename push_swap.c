@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 22:31:23 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/09 23:05:47 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,5 @@ int	main(int ac, char **av)
 	sort(av);
 	free(stack_s.stackb);
 	free(arg);
-	while (1);
 	return (0);
 }

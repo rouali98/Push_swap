@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:12:53 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 22:07:30 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/09 17:22:12 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 void	space_valid(char **av)
 {
-	int	c;
-	int	k;
-	int	b;
+	int	x;
+	int	y;
+	int	z;
 
-	k = 0;
-	c = -1;
-	while (av[++c])
+	x = -1;
+	z = 0;
+	while (av[++x])
 	{
-		if ((av[c][0] == ' ') || av[c][0] == '\0')
+		if ((av[x][0] == ' ') || av[x][0] == '\0')
 		{
-			if (av[c][0] == ' ')
+			if (av[x][0] == ' ')
 			{
-				b = -1;
-				while (av[c][++b])
-					if (av[c][b] >= '0' && av[c][b] <= '9')
-						k++;
-				if (k > 0)
+				y = -1;
+				while (av[x][++y])
+					if (av[x][y] >= '0' && av[x][y] <= '9')
+						z++;
+				if (z > 0)
 					return ;
 				else
 					ft_write_error();
@@ -43,9 +43,20 @@ void	space_valid(char **av)
 
 void	ft_int_max_min(char **av)
 {
+	int	len;
+
 	di.x = 1;
 	while (av[di.x])
 	{
+		di.y = 0;
+		len = ft_strlen(av[di.x]);
+		if (av[di.x][di.y] == '-')
+			di.y++;
+		while (di.y < len && av[di.x][di.y] == '0')
+			di.y++;
+		len = len - di.y;
+		if (len > 10)
+			ft_write_error();
 		if ((ft_atoi(av[di.x]) > 2147483647 || ft_atoi(av[di.x]) < -2147483648))
 			ft_write_error();
 		di.x++;
@@ -54,20 +65,20 @@ void	ft_int_max_min(char **av)
 
 void	ft_duplicate(void)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 
-	i = 0;
-	while (i < ps.contare)
+	x = 0;
+	while (x < ps.contare)
 	{
-		j = 0;
-		while (j < ps.contare)
+		y = 0;
+		while (y < ps.contare)
 		{
-			if (stack_s.stacka[i] == stack_s.stacka[j] && i != j)
+			if (stack_s.stacka[x] == stack_s.stacka[y] && x != y)
 				ft_write_error();
-			j++;
+			y++;
 		}
-		i++;
+		x++;
 	}
 }
 

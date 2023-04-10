@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 22:32:47 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/09 23:05:12 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int	ft_isdigit(char *str)
 	while (str[x])
 	{
 		if (str[x] >= '0' && str[x] <= '9')
-		{
 			return (1);
-		}
 		x++;
 	}
 	return (0);
@@ -53,7 +51,7 @@ long	ft_atoi(char *str)
 		x++;
 	}
 	return (result * y);
-}
+}	
 
 int	ft_strlen(char *str)
 {
@@ -69,7 +67,7 @@ char	*ft_strndup(char *str, int n)
 {
 	int		x;
 	char	dest[sizeof(char) * (n + 1)];
-	char *ps;
+	char	*ps;
 
 	x = 0;
 	while (x < n)
