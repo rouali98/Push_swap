@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/09 23:05:12 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/10 16:56:19 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_strlen(char *str)
 char	*ft_strndup(char *str, int n)
 {
 	int		x;
-	char	dest[sizeof(char) * (n + 1)];
+	char	dest[(n + 1)];
 	char	*ps;
 
 	x = 0;

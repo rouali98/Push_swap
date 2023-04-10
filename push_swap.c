@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/09 23:05:47 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/10 16:51:35 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	**ft_split(char *str, char c)
 	int		x;
 	int		y;
 	int		save;
-	char	*arg[sizeof(char *) * (ft_word(str, c) + 1)];
+	char	*arg[(ft_word(str, c) + 1)];
 	char	**ps;
 
 	x = 0;
