@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   stacka.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:39:21 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/09 21:48:43 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/13 18:24:57 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_write_error(void)
+void	ft_free_all(void)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	free(stack_s.stackb);
+	free(ps.arg);
 }
 
 /* SA */
@@ -35,7 +35,6 @@ void	ft_swap_a_first(void)
 void	ft_rev_a_shift_up(void)
 {
 	di.x = 0;
-	ps.c = 0;
 	ps.fill = ps.contare - 1;
 	while (di.x <= ps.fill)
 	{
@@ -55,7 +54,6 @@ void	ft_rev_a_shift_up(void)
 void	ft_rev_a_shift_down(void)
 {
 	di.x = 0;
-	ps.c = 0;
 	ps.fill = ps.contare - 1;
 	while (di.x <= ps.fill)
 	{

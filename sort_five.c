@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 19:08:59 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 21:34:36 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/14 16:15:08 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,28 @@ int	ft_min_nbr(void)
 void	ft_pa_rra(void)
 {
 	int	min;
-	int	ph;
+	int	x;
 
-	ph = 0;
-	while (ph < ps.contare)
+	x = 0;
+	while (x < ps.contare)
 	{	
 		min = ft_min_nbr();
 		if (stack_s.stacka[ps.contare - 1] == min)
 		{
 			ft_rev_a_shift_down();
 			push_a();
-			ps.contare = ps.contare - 1;
+			ps.contare--;
 			break ;
 		}
 		if (stack_s.stacka[0] == min)
 		{
 			push_a();
-			ps.contare = ps.contare - 1;
+			ps.contare--;
 			break ;
 		}
 		else
 			ft_rev_a_shift_up();
-		ph++;
+		x++;
 	}
 }
 
@@ -62,7 +62,7 @@ void	ft_sort_four(void)
 		ft_pa_rra();
 		ft_sort_three();
 		push_b();
-		ps.contare = ps.contare + 1;
+		ps.contare++;
 	}
 }
 
@@ -74,6 +74,6 @@ void	ft_sort_five(void)
 		ft_pa_rra();
 		ft_sort_four();
 		push_b();
-		ps.contare = ps.contare + 1;
+		ps.contare++;
 	}
 }

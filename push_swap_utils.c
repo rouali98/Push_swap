@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:47:05 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/10 16:56:19 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/14 01:52:54 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,45 @@ int	ft_isdigit(char *str)
 	return (0);
 }
 
-long	ft_atoi(char *str)
+int	ft_contare(char **av)
 {
 	int		x;
 	int		y;
-	long	result;
+	int		z;
+	char	*splt;
+
+	x = 1;
+	z = 0;
+	while (av[x])
+	{
+		y = 0;
+		splt = av[x];
+		while (splt[y])
+		{
+			while (splt[y] == ' ' && splt[y] != '\0')
+				y++;
+			if (splt[y] == '\0')
+				break ;
+			z++;
+			while (splt[y] != ' ' && splt[y] != '\0')
+				y++;
+		}
+		x++;
+	}
+	return (z);
+}
+
+long	ft_atoi(char *str)
+{
+	int			x;
+	int			y;
+	long		result;
 
 	x = 0;
 	y = 1;
 	result = 0;
 	if ((str[0] == '-' && str[1] == '\0') || (str[0] == '+' && str[1] == '\0'))
-		ft_write_error();
+		ft_exit_error();
 	while (str[x] == 32 || (str[x] >= 9 && str[x] <= 13))
 		x++;
 	if (str[x] == '-' || str[x] == '+')
@@ -45,54 +73,12 @@ long	ft_atoi(char *str)
 			y = y * -1;
 		x++;
 	}
-	while (str[x] >= '0' && str[x] <= '9')
+	while ((str[x] >= '0' && str[x] <= '9') && str[x])
 	{
-		result = result * 10 + str[x] - '0';
+		result = (result * 10) + (str[x] - '0');
+		if ((result * y) > 2147483647 || (result * y) < -2147483648)
+			ft_exit_error();
 		x++;
 	}
 	return (result * y);
-}	
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strndup(char *str, int n)
-{
-	int		x;
-	char	dest[(n + 1)];
-	char	*ps;
-
-	x = 0;
-	while (x < n)
-	{
-		dest[x] = str[x];
-		x++;
-	}
-	dest[x] = '\0';
-	ps = &dest[0];
-	return (ps);
-}
-
-int	ft_word(char *s, char c)
-{
-	int	x;
-
-	x = 0;
-	ps.contare = 0;
-	while (s[x])
-	{
-		if ((x == 0 && s[x] != c) || (s[x] == c && s[x + 1] && s[x + 1] != c))
-		{
-			ps.contare++;
-		}
-		x++;
-	}
-	return (ps.contare);
 }

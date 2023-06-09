@@ -6,89 +6,43 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:14 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/10 16:51:35 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/13 21:05:20 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**ft_split(char *str, char c)
-{
-	int		x;
-	int		y;
-	int		save;
-	char	*arg[(ft_word(str, c) + 1)];
-	char	**ps;
-
-	x = 0;
-	y = 0;
-	if (!str)
-		return (0);
-	while (x < ft_word(str, c) && str[y])
-	{
-		while (str[y] == c)
-			y++;
-		save = y;
-		while (str[y] != c && str[y])
-			y++;
-		arg[x] = ft_strndup(&str[save], y - save);
-		if (arg[x++] == 0)
-			return (NULL);
-	}
-	arg[x] = 0;
-	ps = &arg[0];
-	return (ps);
-}
-
-int	ft_contare(char **av)
-{
-	int		x;
-	int		y;
-	int		c;
-	char	**split;
-
-	x = 1;
-	c = 0;
-	while (av[x])
-	{
-		y = 0;
-		split = ft_split(av[x], ' ');
-		while (split[y++])
-			c++;
-		x++;
-	}
-	return (c);
-}
-
-int	*ft_arg(char **str)
+int	*ft_arg(char **av)
 {
 	int		x;
 	int		y;
 	int		z;
 	int		*arg;
 
-	arg = malloc(sizeof(int *) * (ft_contare(str) + 1));
+	arg = malloc(sizeof(int *) * (ft_contare(av)));
 	if (!arg)
 		return (0);
-	x = 1;
+	x = 0;
 	z = 0;
-	while (str[x])
+	while (av[++x])
 	{
 		y = 0;
-		while (ft_split(str[x], ' ')[y])
+		while (av[x][y])
 		{
-			arg[z++] = ft_atoi(ft_split(str[x], ' ')[y]);
-			y++;
+			while (av[x][y] == ' ' && av[x][y] != '\0')
+				y++;
+			if (av[x][y] == '\0')
+				break ;
+			arg[z++] = ft_atoi(&av[x][y]);
+			while (av[x][y] != ' ' && av[x][y] != '\0')
+				y++;
 		}
-		x++;
 	}
 	return (arg);
 }
 
 void	sort(char **av)
 {
-	if (!stack_s.stackb)
-		exit(1);
 	if (ps.contare < 4)
 		ft_sort_three();
 	if (ps.contare > 3 && ps.contare <= 5)
@@ -99,30 +53,46 @@ void	sort(char **av)
 		ft_sort_fivehundred(av);
 }
 
-int	main(int ac, char **av)
+void	ft_free_error(char **av)
 {
-	int	*arg;
-
-	arg = ft_arg(av);
-	if (ac <= 0)
+	if (space_valid(av) == 1)
 	{
-		write(1, "Error\n", 6);
-		return (0);
+		write(2, "Error\n", 6);
+		ft_free_all();
+		exit(1);
 	}
+	if (ft_duplicate() == 1)
+	{
+		ft_free_all();
+		exit(1);
+	}
+	if (ft_is_sorted() == 1)
+	{
+		ft_free_all();
+		exit(0);
+	}
+}
+
+void	ft_push_swap(char **av)
+{
+	ps.arg = ft_arg(av);
 	ft_check_is_not_nbr(av);
-	stack_s.stacka = arg;
+	stack_s.stacka = ps.arg;
 	stack_s.stackb = malloc(sizeof(int) * (ps.sb + 1));
 	if (!stack_s.stackb)
-		return (0);
+		return ;
 	ps.sb = 0;
 	stack_s.stackb[0] = 0;
 	ps.contare = ft_contare(av);
-	space_valid(av);
-	ft_int_max_min(av);
-	ft_duplicate();
-	ft_is_sorted();
+	ft_free_error(av);
 	sort(av);
-	free(stack_s.stackb);
-	free(arg);
-	return (0);
+	ft_free_all();
+}
+
+int	main(int ac, char **av)
+{
+	if (ac > 1)
+		ft_push_swap(av);
+	else
+		return (0);
 }

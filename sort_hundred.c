@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:22:31 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/08 21:32:50 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/14 16:35:04 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ void	ft_smaller(int *arr, int save)
 void	ft_larger(int *arr)
 {
 	if (stack_s.stacka[0] > arr[di.end])
-	{
 		ft_rev_a_shift_up();
-	}
 }
 
 void	ft_sort_hundred(char **av)
@@ -85,12 +83,8 @@ void	ft_sort_hundred(char **av)
 	if (di.end > save)
 		di.end = save;
 	while (ps.contare)
-	{
 		ft_range(arr, save);
-	}
 	while (ps.sb)
-	{
 		ft_return_sb();
-	}
 	free(arr);
 }

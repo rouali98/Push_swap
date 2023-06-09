@@ -6,13 +6,13 @@
 #    By: rouali <rouali@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 12:08:31 by rouali            #+#    #+#              #
-#    Updated: 2023/04/09 20:56:02 by rouali           ###   ########.fr        #
+#    Updated: 2023/04/13 20:01:21 by rouali           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 

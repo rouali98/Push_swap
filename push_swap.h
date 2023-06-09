@@ -6,7 +6,7 @@
 /*   By: rouali <rouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:38:55 by rouali            #+#    #+#             */
-/*   Updated: 2023/04/10 16:51:46 by rouali           ###   ########.fr       */
+/*   Updated: 2023/04/14 16:09:47 by rouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@
 
 struct s_push_swap
 {
-	char	*var;
 	int		contare;
 	int		fill;
 	int		c;
 	int		sb;
-	char	*sp;
+	int		*arg;
 } ps;
 
 struct s_direction
@@ -44,26 +43,24 @@ struct s_stack
 	int	*stackb;
 } stack_s;
 
-/* ################## HUNDEL_P_S ##############################*/
+/* ################## HUNDEL_P_S ############################## */
 
-void	space_valid(char **av);
-void	ft_int_max_min(char **av);
-void	ft_duplicate(void);
-void	ft_is_sorted(void);
+int		space_valid(char **av);
+int		ft_duplicate(void);
+int		ft_is_sorted(void);
 void	ft_check_is_not_nbr(char **av);
 
-/* #################### PUSH SWAP UTILIS #####################*/
+/* #################### PUSH SWAP UTILIS ##################### */
 
+void	ft_exit_error(void);
 long	ft_atoi(char *str);
-char	*ft_strndup(char *str, int n);
-int		ft_word(char *str, char c);
 
-/* ####################### PUSH SWAP ########################*/
+/* ####################### PUSH SWAP ######################## */
 
 int		ft_contare(char **av);
 int		*ft_arg(char **str);
 
-/* ################## SORT ##############################*/
+/* ################## SORT ############################## */
 
 void	ft_sort_three(void);
 void	ft_sort_five(void);
@@ -72,7 +69,7 @@ void	ft_sort_fivehundred(char **av);
 
 /* ################## Stack A ########################## */
 
-void	ft_write_error(void);
+void	ft_free_all(void);
 void	ft_swap_a_first(void);
 void	ft_rev_a_shift_up(void);
 void	ft_rev_a_shift_down(void);
@@ -97,5 +94,4 @@ void	ft_confined(int *arr, int save);
 void	ft_smaller(int *arr, int save);
 void	ft_larger(int *arr);
 
-int		ft_strlen(char *str);
 #endif
